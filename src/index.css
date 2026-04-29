@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  UX Design Strategist Portfolio
+  Design System: Technical, Code-Inspired, Dark Mode
+  Typography: JetBrains Mono (monospace) + Inter (sans)
+  Palette: Deep dark with cyan/teal accents
+*/
+
+@layer base {
+  :root {
+    /* Dark base */
+    --background: 220 20% 8%;
+    --foreground: 210 20% 92%;
+
+    /* Card surfaces */
+    --card: 220 18% 11%;
+    --card-foreground: 210 20% 92%;
+
+    /* Popover */
+    --popover: 220 18% 11%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Primary: Bright text */
+    --primary: 210 20% 92%;
+    --primary-foreground: 220 20% 8%;
+
+    /* Secondary: Muted surface */
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 210 15% 75%;
+
+    /* Muted */
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 15% 55%;
+
+    /* Accent: Cyan/Teal - terminal inspired */
+    --accent: 175 70% 50%;
+    --accent-foreground: 220 20% 8%;
+
+    /* Destructive */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 20% 95%;
+
+    /* Borders & inputs */
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 175 70% 50%;
+
+    --radius: 0.25rem;
+
+    /* Sidebar */
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 210 15% 75%;
+    --sidebar-primary: 175 70% 50%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 175 70% 50%;
+
+    /* Custom tokens */
+    --text-display: 210 20% 95%;
+    --text-body: 215 15% 60%;
+    --text-code: 175 70% 50%;
+    --accent-glow: 175 70% 50% / 0.15;
+    --terminal-green: 140 70% 50%;
+    --terminal-yellow: 45 90% 60%;
+    --terminal-purple: 270 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Typography system - code-inspired */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'JetBrains Mono', monospace;
+    color: hsl(var(--text-display));
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  p, span, li {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  a {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+  /* Code comment style label */
+  .code-comment {
+    color: hsl(var(--muted-foreground));
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+  }
+
+  .code-comment::before {
+    content: '// ';
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Accent highlight - code style */
+  .accent-highlight {
+    color: hsl(var(--accent));
+    position: relative;
+  }
+
+  .accent-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: hsl(var(--accent));
+    opacity: 0.5;
+  }
+
+  /* Discipline tags - terminal style */
+  .discipline-tag {
+    @apply inline-flex items-center px-3 py-1.5 rounded text-sm font-mono;
+    background: hsl(var(--secondary));
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--border));
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .discipline-tag::before {
+    content: '>';
+    margin-right: 0.5rem;
+    opacity: 0.5;
+  }
+
+  .discipline-tag:hover {
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 20px hsl(var(--accent-glow));
+  }
+
+  /* Profile image container - terminal window style */
+  .profile-frame {
+    @apply relative overflow-hidden rounded-lg;
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 20px 50px -10px hsl(220 20% 5% / 0.8);
+  }
+
+  .profile-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: hsl(var(--secondary));
+    border-bottom: 1px solid hsl(var(--border));
+    z-index: 10;
+  }
+
+  .profile-frame::after {
+    content: '● ● ●';
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: hsl(var(--muted-foreground));
+    z-index: 11;
+  }
+
+  /* Section divider - code style */
+  .section-divider {
+    @apply flex items-center gap-3 font-mono text-xs;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: hsl(var(--border));
+  }
+
+  /* Terminal cursor blink */
+  .cursor-blink::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+    color: hsl(var(--accent));
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Code block style */
+  .code-block {
+    @apply p-4 rounded-lg font-mono text-sm;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Glow button */
+  .glow-button {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 20px hsl(var(--accent-glow));
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.3);
+  }
+
+  /* Text link - code style */
+  .text-link {
+    @apply font-mono text-sm transition-all duration-200;
+    color: hsl(var(--accent));
+  }
+
+  .text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  /* Text styles using design tokens */
+  .text-display {
+    color: hsl(var(--text-display));
+  }
+
+  .text-body {
+    color: hsl(var(--text-body));
+  }
+
+  .text-code {
+    color: hsl(var(--text-code));
+  }
+
+  /* Syntax highlighting colors */
+  .text-terminal-green {
+    color: hsl(var(--terminal-green));
+  }
+
+  .text-terminal-yellow {
+    color: hsl(var(--terminal-yellow));
+  }
+
+  .text-terminal-purple {
+    color: hsl(var(--terminal-purple));
+  }
+
+  /* Glow effects */
+  .glow-accent {
+    box-shadow: 0 0 30px hsl(var(--accent-glow));
+  }
+}
