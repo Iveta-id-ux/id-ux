@@ -18,10 +18,10 @@ const Philosophy = () => {
     },
     {
       number: "03",
-      key: "culture",
-      title: "Culture Shapes Experience",
+      key: "evidence",
+      title: "Evidence drives decisions",
       description:
-        "My anthropological lens reveals the cultural contexts that influence behavior — creating designs that feel native, not foreign.",
+        "Decisions get made on data, not opinion. I run generative research, contextual inquiry, and structured synthesis to turn fuzzy inputs into product bets that survive the meeting.",
     },
   ];
 
@@ -44,7 +44,7 @@ const Philosophy = () => {
               philosophy <span className="text-muted-foreground">=</span> {"{"} 
             </h2>
             <p className="text-body max-w-sm">
-              Where anthropological inquiry meets strategic design thinking.
+              Decisions made on evidence, shipped with intent.
             </p>
           </motion.div>
 
@@ -93,8 +93,8 @@ const Philosophy = () => {
           <blockquote className="text-center">
             <p className="font-mono text-xl md:text-2xl lg:text-3xl text-display leading-snug max-w-3xl mx-auto">
               <span className="text-muted-foreground">"</span>
-              Good design is anthropology made visible — it reveals what people value, 
-              not just what they say they want.
+              The job isn't to ship pixels. It's to ship the right pixels for the
+              right reason — and prove it.
               <span className="text-muted-foreground">"</span>
             </p>
           </blockquote>
