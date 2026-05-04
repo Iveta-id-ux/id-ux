@@ -89,7 +89,20 @@ The Amadeus All Fares case study is currently a structured draft, not final copy
 
 ## Design system
 
-Dark theme defined in `src/index.css` via HSL CSS variables, surfaced as Tailwind tokens in `tailwind.config.ts`. Typography: **Inter** (sans) + **JetBrains Mono** (mono), loaded from Google Fonts in `index.html`. Reusable utility classes live alongside the tokens — `.code-comment`, `.discipline-tag`, `.profile-frame`, `.glow-button`, `.cursor-blink`, `.text-link`, `.code-block`, `.section-divider`.
+Dark **and light** themes defined in `src/index.css` via HSL CSS variables, surfaced as Tailwind tokens in `tailwind.config.ts`. Theme toggling is wired through `next-themes` (`<ThemeProvider attribute="class" defaultTheme="dark">` in `src/App.tsx`), with a sun/moon switch on the right edge of the status bar and a `toggle_theme()` command in the palette. Typography: **Inter** (sans) + **JetBrains Mono** (mono), loaded as variable fonts from Google Fonts in `index.html`. Reusable utility classes live alongside the tokens — `.code-comment`, `.discipline-tag`, `.profile-frame`, `.glow-button`, `.cursor-blink`, `.text-link`, `.code-block`, `.section-divider`, `.divider-mono`, `.case-study-prose`, plus `.text-mono-{light,regular,medium,bold,italic}` for explicit `font-variation-settings`.
+
+## Deploying to Vercel
+
+The repo is configured for Vercel out of the box. Connect the GitHub repo to a Vercel project and the defaults work:
+
+- **Framework preset:** Vite (set explicitly in `vercel.json`)
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Install command:** `npm install` (default)
+
+`vercel.json` ships an SPA rewrite (`/(.*)` → `/index.html`) so client-side routes like `/work/[slug]` resolve, and a one-year `Cache-Control: public, max-age=31536000, immutable` on `/assets/*` (Vite emits hashed filenames, so this is safe).
+
+Once a production URL exists, set it in `content/site-meta.ts` (`productionUrl`) and `index.html` (`og:url`) — both currently carry `// TODO` markers.
 
 ## Origin
 
