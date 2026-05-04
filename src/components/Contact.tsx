@@ -19,9 +19,18 @@ const Contact = () => {
               <span className="text-code">meaningful_work</span>
               <span className="cursor-blink"></span>
             </h2>
-            <p className="text-body text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-body text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
               Currently considering senior IC and lead roles in product design,
               strategy, and research.
+            </p>
+            <p className="font-mono text-sm mb-12">
+              <span className="text-muted-foreground">// </span>
+              <a
+                href={`mailto:${siteMeta.email}`}
+                className="text-terminal-yellow hover:underline underline-offset-4"
+              >
+                {siteMeta.email}
+              </a>
             </p>
           </motion.div>
 
