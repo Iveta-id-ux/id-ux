@@ -1,14 +1,17 @@
 # id-ux
 
-Iveta Dimitrova's portfolio — Senior UX Designer. Single-page landing at `/`, a filterable `/work` case-studies index, and individual case-study pages at `/work/[slug]`. Dark, terminal/code-inspired design system.
+Iveta Dimitrova's portfolio — Senior UX Designer. Single-page landing at `/`, a filterable `/work` case-studies index, and individual case-study pages at `/work/[slug]`. Terminal/code-inspired design system in **dark** (default) and **light** modes, with a sun/moon switch in the persistent status bar and a `⌘K` command palette.
 
 ## Stack
 
 - **Vite** + **React 18** + **TypeScript**
-- **Tailwind CSS** with HSL CSS-variable tokens
+- **Tailwind CSS** with HSL CSS-variable tokens (dark + light)
 - **shadcn/ui** (Radix primitives) for low-level components
 - **react-router-dom** for routing
-- **framer-motion** for entrance animations
+- **framer-motion** for entrance animations + scroll stagger
+- **next-themes** for the dark/light toggle
+- **MDX** (`@mdx-js/rollup` + `remark-frontmatter` + `remark-gfm` + `rehype-slug`) for case-study content
+- **Zod** for build-time frontmatter validation
 - **Vitest** + **Testing Library** + **jsdom** for tests
 
 ## Getting started
@@ -42,6 +45,8 @@ content/
 src/
   components/
     Hero, Philosophy, Contact, NavLink
+    StatusBar, CommandPalette,
+    ThemeToggle, TransitionLink, DecodingText
     work/                            CaseStudyCard, MetricsStrip,
                                      StatusPill, CaseStudyLayout,
                                      CaseStudyTopBar, CaseStudyLeftRail
@@ -51,20 +56,29 @@ src/
     case-studies.ts                  Discovery + validation
   pages/                             Index, Work, CaseStudy, NotFound
   hooks/                             use-mobile, use-toast
-  lib/                               cn, useDocumentMeta
-  types/mdx.d.ts                     MDX module shape
+  lib/                               cn, useDocumentMeta,
+                                     useActiveSection, useCountUp,
+                                     navigateWithTransition
+  types/                             mdx.d.ts, build.d.ts
   index.css                          Design tokens + custom utilities
-  App.tsx                            Router + providers
+  App.tsx                            Router + providers (incl. ThemeProvider)
 ```
 
 Path aliases: `@/` → `./src`, `@content/` → `./content`.
 
 ## Routes
 
-- `/` — landing page (Hero + Philosophy + Contact, with `#about` / `#contact` anchors)
-- `/work` — case studies index, multi-select filterable (URL-synced via `?filter=…`)
-- `/work/[slug]` — individual case study, two-column layout (sticky file-tree rail + main column)
+- `/` — landing page (Hero + Philosophy + Contact, with `#about` / `#contact` anchors). Iveta's portrait sits inside the Philosophy section's left header column.
+- `/work` — case studies index, multi-select filterable (URL-synced via `?filter=…`). Cards stagger-fade as they appear.
+- `/work/[slug]` — individual case study, two-column layout (sticky file-tree rail + main column). Navigation uses the View Transitions API where supported.
 - `*` — 404
+
+## Site chrome
+
+Mounted globally in `src/App.tsx`:
+
+- **StatusBar** — sticky 28px bar at top of every route. `// status: open_to_roles · last_updated: <build-date> · location: Bansko`. On `/work/[slug]` the status segment morphs to `// section: <current h2>`. ThemeToggle (sun/moon switch) lives at the right edge.
+- **CommandPalette** — global `⌘K` / `Ctrl+K`. Navigate, open a case study by title, copy email, open LinkedIn, download CV, toggle theme.
 
 ## Authoring case studies
 
@@ -85,7 +99,10 @@ Some case-study images come from gated brand portals and can't be fetched at bui
 
 ## Outstanding TODOs
 
-The Amadeus All Fares case study is currently a structured draft, not final copy. Every section ends with a `> // TODO: user to refine` blockquote — these render on the page so the editing pass is unmissable. Sweep them before publishing.
+- **Amadeus All Fares case study** — structured draft. Every section ends with a `> // TODO: user to refine` blockquote that renders on the page so the editing pass is unmissable. Sweep before publishing.
+- **`waves-of-progress.jpg`** — manual download from Amadeus brand portal (see Manual assets table above). Until present, the card and case-study page fall back to the corner-bracket placeholder.
+- **`productionUrl` + `og:url`** — `content/site-meta.ts` and `index.html` carry `// TODO` markers waiting on a real production URL.
+- **OG image** — `index.html` references `/og-image.png` as a placeholder; needs a real 1200×630 asset.
 
 ## Design system
 
