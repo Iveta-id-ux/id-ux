@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const Philosophy = () => {
   const pillars = [
@@ -18,17 +19,17 @@ const Philosophy = () => {
     },
     {
       number: "03",
-      key: "culture",
-      title: "Culture Shapes Experience",
+      key: "evidence",
+      title: "Evidence drives decisions",
       description:
-        "My anthropological lens reveals the cultural contexts that influence behavior — creating designs that feel native, not foreign.",
+        "Decisions get made on data, not opinion. I run generative research, contextual inquiry, and structured synthesis to turn fuzzy inputs into product bets that survive the meeting.",
     },
   ];
 
   return (
     <section id="about" className="py-24 lg:py-32 bg-card">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 lg:items-center">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -44,8 +45,16 @@ const Philosophy = () => {
               philosophy <span className="text-muted-foreground">=</span> {"{"} 
             </h2>
             <p className="text-body max-w-sm">
-              Where anthropological inquiry meets strategic design thinking.
+              Decisions made on evidence, shipped with intent.
             </p>
+
+            <div className="profile-frame mt-8 w-full max-w-[400px] aspect-square">
+              <img
+                src={profilePhoto}
+                alt="Iveta Dimitrova"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
 
           {/* Pillars */}
@@ -93,8 +102,8 @@ const Philosophy = () => {
           <blockquote className="text-center">
             <p className="font-mono text-xl md:text-2xl lg:text-3xl text-display leading-snug max-w-3xl mx-auto">
               <span className="text-muted-foreground">"</span>
-              Good design is anthropology made visible — it reveals what people value, 
-              not just what they say they want.
+              The job isn't to ship pixels. It's to ship the right pixels for the
+              right reason — and prove it.
               <span className="text-muted-foreground">"</span>
             </p>
           </blockquote>

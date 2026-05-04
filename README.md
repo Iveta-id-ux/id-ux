@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# id-ux
 
-## Project info
+Iveta Dimitrova's portfolio — Senior UX Designer. Single-page landing at `/`, a filterable `/work` case-studies index, and individual case-study pages at `/work/[slug]`. Dark, terminal/code-inspired design system.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack
 
-## How can I edit this code?
+- **Vite** + **React 18** + **TypeScript**
+- **Tailwind CSS** with HSL CSS-variable tokens
+- **shadcn/ui** (Radix primitives) for low-level components
+- **react-router-dom** for routing
+- **framer-motion** for entrance animations
+- **Vitest** + **Testing Library** + **jsdom** for tests
 
-There are several ways of editing your application.
+## Getting started
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js 18+ and npm.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev          # http://localhost:8080
 ```
 
-**Edit a file directly in GitHub**
+## Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Command              | Description                                   |
+| -------------------- | --------------------------------------------- |
+| `npm run dev`        | Start Vite dev server on port 8080            |
+| `npm run build`      | Production build to `dist/`                   |
+| `npm run build:dev`  | Build in development mode (keeps Lovable tagger) |
+| `npm run preview`    | Preview the production build                  |
+| `npm run lint`       | Run ESLint                                    |
+| `npm test`           | Run Vitest once                               |
+| `npm run test:watch` | Run Vitest in watch mode                      |
 
-**Use GitHub Codespaces**
+## Project layout
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+content/
+  case-studies/
+    SCHEMA.md                        Frontmatter contract
+    *.mdx                            One file per case study
+src/
+  components/
+    Hero, Philosophy, Contact, NavLink
+    work/                            CaseStudyCard, MetricsStrip,
+                                     StatusPill, CaseStudyLayout,
+                                     CaseStudyTopBar, CaseStudyLeftRail
+    ui/                              shadcn/ui primitives
+  content/
+    types.ts                         Zod frontmatter schema
+    case-studies.ts                  Discovery + validation
+  pages/                             Index, Work, CaseStudy, NotFound
+  hooks/                             use-mobile, use-toast
+  lib/                               cn, useDocumentMeta
+  types/mdx.d.ts                     MDX module shape
+  index.css                          Design tokens + custom utilities
+  App.tsx                            Router + providers
+```
 
-## What technologies are used for this project?
+Path aliases: `@/` → `./src`, `@content/` → `./content`.
 
-This project is built with:
+## Routes
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `/` — landing page (Hero + Philosophy + Contact, with `#about` / `#contact` anchors)
+- `/work` — case studies index, multi-select filterable (URL-synced via `?filter=…`)
+- `/work/[slug]` — individual case study, two-column layout (sticky file-tree rail + main column)
+- `*` — 404
 
-## How can I deploy this project?
+## Authoring case studies
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Drop a new `*.mdx` file in `content/case-studies/`. Required frontmatter is documented in [`content/case-studies/SCHEMA.md`](content/case-studies/SCHEMA.md) and validated at build time via Zod (`src/content/types.ts`) — invalid frontmatter throws a clear error in the dev server.
 
-## Can I connect a custom domain to my Lovable project?
+Body conventions:
 
-Yes, you can!
+- Use `##` for top-level sections. Section IDs are auto-generated by `rehype-slug`; the case-study left rail reads them via `IntersectionObserver`.
+- Use `> // TODO: …` blockquotes for in-progress notes — they render visibly on the page so the editing pass doesn't miss them.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Manual assets
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Some case-study images come from gated brand portals and can't be fetched at build time. Download them by hand, drop them in `public/images/case-studies/[slug]/`, and reference the path from the MDX `hero_image` field. If the asset is absent at build time, the card and the case-study page fall back to a corner-bracket placeholder treatment.
+
+| Case study | Asset | Source | Target path |
+|---|---|---|---|
+| Amadeus All Fares | `waves-of-progress.jpg` | [Amadeus brand portal](https://brand.amadeus.com/waves-of-progress?m=8090774) (auth required) | `public/images/case-studies/amadeus-all-fares/waves-of-progress.jpg` |
+
+## Outstanding TODOs
+
+The Amadeus All Fares case study is currently a structured draft, not final copy. Every section ends with a `> // TODO: user to refine` blockquote — these render on the page so the editing pass is unmissable. Sweep them before publishing.
+
+## Design system
+
+Dark theme defined in `src/index.css` via HSL CSS variables, surfaced as Tailwind tokens in `tailwind.config.ts`. Typography: **Inter** (sans) + **JetBrains Mono** (mono), loaded from Google Fonts in `index.html`. Reusable utility classes live alongside the tokens — `.code-comment`, `.discipline-tag`, `.profile-frame`, `.glow-button`, `.cursor-blink`, `.text-link`, `.code-block`, `.section-divider`.
+
+## Origin
+
+Originally scaffolded with [Lovable](https://lovable.dev/). The `lovable-tagger` Vite plugin is loaded only in development mode and is excluded from production builds.

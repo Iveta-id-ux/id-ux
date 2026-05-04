@@ -1,19 +1,53 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { caseStudies } from "@/content/case-studies";
+import { CaseStudyCard } from "@/components/work/CaseStudyCard";
+import { useDocumentMeta } from "@/lib/useDocumentMeta";
+import { cn } from "@/lib/utils";
 
 const Work = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Future of Money",
-      category: "UX Research & Strategy",
-      description:
-        "Exploring how digital transformation reshapes our relationship with currency, transactions, and financial identity in an increasingly cashless society.",
-      tags: ["fintech", "behavioral_research", "service_design"],
-      behanceUrl: "https://www.behance.net/gallery/116549723/Future-of-Money",
-      year: "2021",
-    },
-  ];
+  useDocumentMeta(
+    "Work — Iveta Dimitrova, Senior UX Designer",
+    "Selected case studies in product design, strategy, and research.",
+  );
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeFilters = searchParams.getAll("filter");
+
+  const allFilters = useMemo(() => {
+    const set = new Set<string>();
+    caseStudies.forEach((cs) => {
+      cs.frontmatter.taxonomy.forEach((t) => set.add(t));
+      set.add(cs.frontmatter.scope.industry);
+      set.add(cs.frontmatter.scope.role);
+    });
+    return Array.from(set).sort();
+  }, []);
+
+  const visible = useMemo(() => {
+    if (activeFilters.length === 0) return caseStudies;
+    return caseStudies.filter((cs) => {
+      const tags = new Set([
+        ...cs.frontmatter.taxonomy,
+        cs.frontmatter.scope.industry,
+        cs.frontmatter.scope.role,
+      ]);
+      return activeFilters.some((f) => tags.has(f));
+    });
+  }, [activeFilters]);
+
+  const toggleFilter = (filter: string) => {
+    const next = new Set(activeFilters);
+    if (next.has(filter)) {
+      next.delete(filter);
+    } else {
+      next.add(filter);
+    }
+    setSearchParams(Array.from(next).map((v) => ["filter", v]));
+  };
+
+  const clearFilters = () => setSearchParams([]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -22,134 +56,125 @@ const Work = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="container mx-auto px-6 py-8 flex justify-between items-center"
+        className="container mx-auto px-4 sm:px-6 py-5 sm:py-8 flex justify-between items-center"
       >
-        <Link to="/" className="font-mono text-lg text-display hover:text-code transition-colors">
+        <Link
+          to="/"
+          className="font-mono text-base sm:text-lg text-display hover:text-code transition-colors"
+        >
           <span className="text-code">~/</span>portfolio
         </Link>
-        <div className="flex gap-8">
-          <Link to="/" className="text-body text-sm font-mono hover:text-code transition-colors">
+        <div className="flex gap-3 sm:gap-6 md:gap-8">
+          <Link
+            to="/"
+            className="text-body text-sm font-mono hover:text-code transition-colors"
+          >
             cd ../home
           </Link>
         </div>
       </motion.nav>
 
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-4 sm:px-6 py-8 lg:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 lg:mb-14"
         >
-          <p className="code-comment mb-4">// case_studies.map()</p>
+          <p className="code-comment mb-4">work</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-mono text-display mb-4">
-            Selected <span className="text-code">Work</span>
+            Selected <span className="text-code">case_studies</span>
             <span className="cursor-blink"></span>
           </h1>
-          <p className="text-body text-lg max-w-2xl">
-            Research-driven projects exploring the intersection of human behavior, 
-            cultural context, and design strategy.
+          <p className="text-body text-base md:text-lg max-w-2xl">
+            Filter by industry, role, or method. Each card opens the full case
+            study.
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="space-y-8">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="group"
-            >
-              <a
-                href={project.behanceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <div className="border border-border rounded-lg p-6 md:p-8 bg-card hover:border-accent transition-all duration-300">
-                  {/* Terminal Header */}
-                  <div className="flex items-center gap-2 mb-6">
-                    <span className="w-3 h-3 rounded-full bg-terminal-red"></span>
-                    <span className="w-3 h-3 rounded-full bg-terminal-yellow"></span>
-                    <span className="w-3 h-3 rounded-full bg-terminal-green"></span>
-                    <span className="ml-4 font-mono text-xs text-muted-foreground">
-                      project_{project.id}.tsx
+        {/* Filter bar */}
+        {allFilters.length > 0 && (
+          <div
+            role="group"
+            aria-label="Filter case studies"
+            className="flex flex-wrap items-center gap-2 mb-8"
+          >
+            {allFilters.map((f) => {
+              const active = activeFilters.includes(f);
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => toggleFilter(f)}
+                  aria-pressed={active}
+                  className={cn(
+                    "inline-flex items-center px-3 py-1.5 rounded text-xs font-mono border transition-all duration-200",
+                    active
+                      ? "bg-secondary border-accent text-accent"
+                      : "bg-transparent border-border text-muted-foreground hover:border-accent/50 hover:text-body",
+                  )}
+                >
+                  {active && (
+                    <span aria-hidden="true" className="mr-1.5 opacity-70">
+                      ×
                     </span>
-                  </div>
+                  )}
+                  {f}
+                </button>
+              );
+            })}
+            {activeFilters.length > 0 && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="ml-1 font-mono text-xs text-muted-foreground hover:text-body underline underline-offset-4"
+              >
+                clear()
+              </button>
+            )}
+          </div>
+        )}
 
-                  <div className="grid md:grid-cols-[1fr,auto] gap-6 items-start">
-                    <div>
-                      {/* Category & Year */}
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="text-code font-mono text-sm">
-                          {project.category}
-                        </span>
-                        <span className="text-muted-foreground font-mono text-sm">
-                          // {project.year}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h2 className="text-2xl md:text-3xl font-mono text-display mb-4 group-hover:text-code transition-colors">
-                        {project.title}
-                      </h2>
-
-                      {/* Description */}
-                      <p className="text-body mb-6 max-w-2xl leading-relaxed">
-                        {project.description}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="discipline-tag text-xs"
-                          >
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* View Arrow */}
-                    <div className="hidden md:flex items-center justify-center w-12 h-12 border border-border rounded-lg group-hover:border-accent group-hover:bg-accent/10 transition-all">
-                      <svg
-                        className="w-5 h-5 text-muted-foreground group-hover:text-code transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </motion.article>
-          ))}
-        </div>
-
-        {/* More Coming */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center"
-        >
-          <p className="code-comment">// more_projects.loading()...</p>
-          <p className="text-muted-foreground font-mono text-sm mt-2">
-            Additional case studies coming soon
-          </p>
-        </motion.div>
+        {/* Grid / empty state */}
+        {visible.length === 0 ? (
+          <div className="py-20 text-center">
+            <p className="code-comment mb-2">no_match</p>
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="font-mono text-sm text-accent hover:underline underline-offset-4"
+            >
+              clear_filters() →
+            </button>
+          </div>
+        ) : (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08 } },
+            }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+          >
+            {visible.map((cs) => (
+              <motion.div
+                key={cs.frontmatter.slug}
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.45, ease: "easeOut" },
+                  },
+                }}
+              >
+                <CaseStudyCard frontmatter={cs.frontmatter} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </main>
   );

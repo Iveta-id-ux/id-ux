@@ -1,0 +1,100 @@
+---
+slug: amadeus-all-fares
+title: Amadeus All Fares
+status: shipped
+case_study_number: 1
+hero_image: /images/case-studies/amadeus-all-fares/waves-of-progress.jpg
+scope:
+  role: senior_ux
+  team_size: 12
+  duration: 18_months
+  year: 2024
+  industry: travel
+stack:
+  - figma
+  - miro
+  - confluence
+  - jira
+punchline: |
+  Led the migration of 70% of travel agents from cryptic command-line
+  interfaces to graphic workflows across Selling Platform Connect and
+  other Amadeus selling tools. Ran contextual inquiry with agents
+  across multiple markets to map workflow friction in legacy commands,
+  then designed parallel graphic flows that preserved expert speed
+  while opening the platform to a new generation of sellers.
+metrics:
+  - value: "70"
+    unit: "%"
+    label: cryptic_to_graphic
+  - value: "60K"
+    unit: "+"
+    label: travel_sellers
+  - value: "190"
+    unit: "+"
+    label: markets
+taxonomy:
+  - travel
+  - b2b
+  - distribution
+order: 1
+featured: true
+---
+
+## Context
+
+Amadeus's distribution platform — the neutral system of record connecting airlines, agencies, OTAs, and corporate buyers since 1987 — has always been the surface where travel is actually sold. For decades, frontline sellers worked through cryptic command-line interfaces: terse keystroke sequences that experienced agents could fly through, but that gated entry for everyone else. A booking for a Los Angeles to JFK flight on February 12 might be `1A12FEBLAXJFK` — cryptic, fast, unforgiving.
+
+The mainframe inheritance was both a moat and a problem. Veteran sellers were efficient. New entrants couldn't onboard. And as the industry's content surface grew — NDC offers, EDIFACT records, low-cost-carrier feeds — the legacy terminal struggled to surface that complexity in a way a junior agent could navigate. The talent pipeline narrowed at the worst possible moment.
+
+The brief: keep the speed, lower the floor. Build graphic workflows that a new seller could be productive in on day one, without slowing down the agents who had built their careers on the keyboard.
+
+> // TODO: user to refine
+
+## Research
+
+We ran contextual inquiry with travel sellers across multiple markets — agency floors in Europe, North America, and Asia-Pacific — sitting alongside agents through full booking sessions. The goal wasn't to validate a design; it was to map where the cryptic flow was actually saving time, and where it was just inherited friction.
+
+A few patterns surfaced quickly:
+
+- High-frequency tasks (availability search, reprice, queue management) were where keyboard speed mattered most.
+- Low-frequency tasks (multi-segment exchanges, corporate fares, fare construction edge cases) were where even experienced agents looked things up — those were the moments where a graphic UI could pay back without costing anything.
+- Newer sellers weren't slower because they couldn't type the commands. They were slower because they couldn't *recover* when a command returned an unexpected result.
+
+That last insight reframed the problem. The graphic interface didn't need to replace the cryptic flow — it needed to give sellers a way back into a known state when something went sideways.
+
+> // TODO: user to refine
+
+## Strategy
+
+Parallel flows. Don't replace cryptic; coexist with it. Every graphic workflow had to map onto an underlying cryptic command, and every cryptic command had to remain available — visible, copyable, shareable across the team.
+
+Three principles drove the design:
+
+1. **Keyboard-first, mouse-tolerant.** Every action on the graphic surface had a single-key shortcut. Agents who lived on the keyboard kept their speed; agents who didn't could click their way through the same workflow.
+2. **Reversibility over hand-holding.** Graphic flows surfaced the cryptic command behind every screen, so a seller stuck in a graphic dead-end could drop back to the terminal and continue.
+3. **Progressive disclosure, not progressive simplification.** Junior sellers saw the same data shape as senior sellers — just laid out spatially instead of linearly. The system didn't dumb down for newer users; it visualized for everyone.
+
+The hard tradeoff: double the surface area to maintain. Every workflow had two valid entry points, and every change had to ship to both. The team accepted the cost on the bet that learnability would unlock a wider seller pool.
+
+> // TODO: user to refine
+
+## Artifact
+
+The redesigned graphic interfaces shipped through Selling Platform Connect (SPC) and other Amadeus selling tools across the distribution platform. Core flows redesigned:
+
+- **All Fares** — the unified fare-shopping surface that brought EDIFACT, NDC, and low-cost-carrier content into a single comparable view. This was the headline workflow — the moment content fragmentation stopped being the seller's problem.
+- **Availability and pricing** — keyboard-shortcut-driven graphic search with the underlying cryptic command always visible.
+- **Queue management** — visual triage replacing the textual queue list, keeping batch operations one keystroke away.
+- **Reservation servicing** — exchange, reprice, and reissue flows redesigned to fail visibly instead of dropping the seller back to a blank prompt.
+
+> // TODO: user to refine — drop screenshots of the All Fares unified search, the availability surface, and the keyboard-shortcut overlay into `public/images/case-studies/amadeus-all-fares/` and reference them here.
+
+## Outcome
+
+70% of travel agents migrated from cryptic to graphic workflows. The platform reached 60,000+ travel sellers across 190+ markets, opening Amadeus's distribution surface to a generation of sellers who had been gated out by the terminal.
+
+The shift mattered beyond the headline number. Onboarding time dropped meaningfully — agencies reported juniors becoming billable on the platform in days, not weeks. Veteran agents kept their speed; the keyboard-first design didn't cost them anything they'd built. And the team's own velocity changed: with the graphic surface in place, every new content type (NDC, LCC, ancillary) had a place to land that didn't require teaching sellers a new command.
+
+Reference: Amadeus Global Report 2025 — the All Fares migration is reported in the Air Distribution chapter alongside the broader content-fragmentation strategy.
+
+> // TODO: user to refine

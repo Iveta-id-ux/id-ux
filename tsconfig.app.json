@@ -24,8 +24,9 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@content/*": ["./content/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "content"]
 }

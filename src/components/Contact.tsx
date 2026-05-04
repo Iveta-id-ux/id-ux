@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { siteMeta } from "@content/site-meta";
 
 const Contact = () => {
   return (
@@ -18,10 +19,18 @@ const Contact = () => {
               <span className="text-code">meaningful_work</span>
               <span className="cursor-blink"></span>
             </h2>
-            <p className="text-body text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-              I'm currently open to UX Strategy and Design Research opportunities. 
-              Whether you're building a product, shaping a service, or reimagining 
-              an experience — I'd love to hear about it.
+            <p className="text-body text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+              Currently considering senior IC and lead roles in product design,
+              strategy, and research.
+            </p>
+            <p className="font-mono text-sm mb-12">
+              <span className="text-muted-foreground">// </span>
+              <a
+                href={`mailto:${siteMeta.email}`}
+                className="text-terminal-yellow hover:underline underline-offset-4"
+              >
+                {siteMeta.email}
+              </a>
             </p>
           </motion.div>
 
@@ -33,10 +42,11 @@ const Contact = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a
-              href="mailto:hello@yourdomain.com"
+              href={`mailto:${siteMeta.email}`}
               className="glow-button inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded font-mono text-sm font-medium transition-all"
             >
               <svg
+                aria-hidden="true"
                 className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
@@ -52,12 +62,13 @@ const Contact = () => {
               send_email()
             </a>
             <a
-              href="https://linkedin.com"
+              href={siteMeta.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-border px-8 py-4 rounded font-mono text-sm text-secondary-foreground transition-all hover:border-accent hover:text-accent"
             >
               <svg
+                aria-hidden="true"
                 className="w-5 h-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
@@ -80,7 +91,7 @@ const Contact = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-mono text-muted-foreground">
-            <span>© 2025 UX_Design_Strategist</span>
+            <span>© {siteMeta.copyrightYear} {siteMeta.name}</span>
             <span className="text-code">// crafted_with_intention</span>
           </div>
         </div>

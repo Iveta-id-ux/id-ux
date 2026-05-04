@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  UX Design Strategist Portfolio
+/*
+  Iveta Dimitrova — Senior UX Designer Portfolio
   Design System: Technical, Code-Inspired, Dark Mode
   Typography: JetBrains Mono (monospace) + Inter (sans)
   Palette: Deep dark with cyan/teal accents
@@ -11,8 +11,8 @@
 
 @layer base {
   :root {
-    /* Dark base */
-    --background: 220 20% 8%;
+    /* Dark base — slightly warmer than 20% saturation */
+    --background: 220 18% 8%;
     --foreground: 210 20% 92%;
 
     /* Card surfaces */
@@ -68,6 +68,54 @@
     --terminal-green: 140 70% 50%;
     --terminal-yellow: 45 90% 60%;
     --terminal-purple: 270 70% 65%;
+  }
+
+  /* Light theme — applied by next-themes when class="light" is on <html> */
+  :root.light {
+    --background: 220 18% 97%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 220 20% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 42%;
+
+    --accent: 175 60% 32%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 87%;
+    --input: 220 15% 87%;
+    --ring: 175 60% 32%;
+
+    --sidebar-background: 220 18% 95%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 175 60% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 92%;
+    --sidebar-accent-foreground: 220 20% 15%;
+    --sidebar-border: 220 15% 87%;
+    --sidebar-ring: 175 60% 32%;
+
+    --text-display: 220 20% 15%;
+    --text-body: 220 15% 35%;
+    --text-code: 175 60% 32%;
+    --accent-glow: 175 60% 32% / 0.18;
+    --terminal-green: 140 55% 30%;
+    --terminal-yellow: 40 80% 35%;
+    --terminal-purple: 270 50% 45%;
   }
 }
 
@@ -175,34 +223,11 @@
     box-shadow: 0 0 20px hsl(var(--accent-glow));
   }
 
-  /* Profile image container - terminal window style */
+  /* Profile image container */
   .profile-frame {
     @apply relative overflow-hidden rounded-lg;
     border: 1px solid hsl(var(--border));
     box-shadow: 0 20px 50px -10px hsl(220 20% 5% / 0.8);
-  }
-
-  .profile-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    background: hsl(var(--secondary));
-    border-bottom: 1px solid hsl(var(--border));
-    z-index: 10;
-  }
-
-  .profile-frame::after {
-    content: '● ● ●';
-    position: absolute;
-    top: 6px;
-    left: 10px;
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: hsl(var(--muted-foreground));
-    z-index: 11;
   }
 
   /* Section divider - code style */
@@ -258,6 +283,67 @@
     text-decoration: underline;
     text-underline-offset: 3px;
   }
+
+  /* Case study body prose */
+  .case-study-prose h2 {
+    @apply font-mono text-xl md:text-2xl mt-12 mb-4 scroll-mt-24;
+    color: hsl(var(--text-display));
+  }
+
+  .case-study-prose h2::before {
+    content: "## ";
+    color: hsl(var(--muted-foreground));
+  }
+
+  .case-study-prose h3 {
+    @apply font-mono text-lg mt-8 mb-3;
+    color: hsl(var(--text-display));
+  }
+
+  .case-study-prose p {
+    @apply text-base leading-relaxed mb-4;
+    color: hsl(var(--text-body));
+  }
+
+  .case-study-prose ul,
+  .case-study-prose ol {
+    @apply mb-4 pl-6 space-y-1;
+    color: hsl(var(--text-body));
+  }
+
+  .case-study-prose li {
+    @apply leading-relaxed;
+  }
+
+  .case-study-prose ul {
+    list-style: disc;
+  }
+
+  .case-study-prose ol {
+    list-style: decimal;
+  }
+
+  .case-study-prose a {
+    color: hsl(var(--accent));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .case-study-prose code {
+    @apply font-mono text-sm px-1 py-0.5 rounded;
+    background: hsl(var(--secondary));
+    color: hsl(var(--text-code));
+  }
+
+  .case-study-prose blockquote {
+    @apply font-mono text-sm pl-4 my-4 border-l-2;
+    border-color: hsl(var(--terminal-yellow));
+    color: hsl(var(--terminal-yellow));
+  }
+
+  .case-study-prose img {
+    @apply rounded-lg my-6;
+  }
 }
 
 @layer utilities {
@@ -290,5 +376,69 @@
   /* Glow effects */
   .glow-accent {
     box-shadow: 0 0 30px hsl(var(--accent-glow));
+  }
+
+  /* Variable typography — JetBrains Mono is variable; exploit weight axis */
+  .text-mono-light {
+    font-variation-settings: "wght" 300;
+  }
+
+  .text-mono-regular {
+    font-variation-settings: "wght" 400;
+  }
+
+  .text-mono-medium {
+    font-variation-settings: "wght" 500;
+  }
+
+  .text-mono-bold {
+    font-variation-settings: "wght" 700;
+  }
+
+  .text-mono-italic {
+    font-style: italic;
+    font-variation-settings: "wght" 400;
+  }
+
+  /* ASCII section divider — terminal-flavored hr */
+  .divider-mono {
+    @apply font-mono text-xs text-muted-foreground my-10;
+  }
+
+  .divider-mono::before {
+    content: "─── // ";
+  }
+
+  .divider-mono::after {
+    content: " ────────────────────────────────────────────";
+    color: hsl(var(--border));
+  }
+
+  /* View Transitions API — subtle crossfade on supported browsers */
+  ::view-transition-old(root) {
+    animation: vt-fade-out 200ms ease-out both;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-fade-in 300ms ease-out both;
+  }
+
+  @keyframes vt-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes vt-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+    }
   }
 }
