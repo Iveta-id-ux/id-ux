@@ -64,8 +64,14 @@ const Hero = () => {
             </h1>
 
             <p className="text-body text-lg max-w-xl mb-10 leading-relaxed">
-              10 years designing software for global teams. Currently considering
-              senior IC and lead roles in product design, strategy, and research.
+              7 years designing software for global teams. Currently a UX
+              Designer at <span className="text-display">Amadeus</span>, with a
+              Master in Interaction Design from{" "}
+              <span className="text-display">Domus Academy / NABA Milan</span>,
+              Italy, and a Bachelor in Cultural Anthropology at{" "}
+              <span className="text-display">Université de Fribourg</span>,
+              Switzerland. Open to senior IC and lead roles in product design,
+              strategy, and research.
             </p>
 
             {/* Disciplines */}
