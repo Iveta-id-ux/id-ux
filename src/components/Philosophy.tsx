@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const Philosophy = () => {
   const pillars = [
@@ -28,7 +29,7 @@ const Philosophy = () => {
   return (
     <section id="about" className="py-24 lg:py-32 bg-card">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 lg:items-center">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -46,6 +47,14 @@ const Philosophy = () => {
             <p className="text-body max-w-sm">
               Decisions made on evidence, shipped with intent.
             </p>
+
+            <div className="profile-frame mt-8 w-full max-w-[400px] aspect-square">
+              <img
+                src={profilePhoto}
+                alt="Iveta Dimitrova"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
 
           {/* Pillars */}

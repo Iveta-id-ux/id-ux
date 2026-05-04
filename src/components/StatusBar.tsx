@@ -1,6 +1,7 @@
 import { useMatch } from "react-router-dom";
 import { siteMeta } from "@content/site-meta";
 import { useActiveSection } from "@/lib/useActiveSection";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function StatusBar() {
   const onCaseStudy = !!useMatch("/work/:slug");
@@ -34,6 +35,9 @@ export function StatusBar() {
         <span className="hidden md:inline opacity-50">·</span>
         <span className="hidden md:inline shrink-0">
           location: <span className="text-body">{siteMeta.location}</span>
+        </span>
+        <span className="ml-auto shrink-0">
+          <ThemeToggle />
         </span>
       </div>
     </div>

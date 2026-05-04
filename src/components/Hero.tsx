@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import profilePhoto from "@/assets/profile-photo.png";
 import { DecodingText } from "@/components/DecodingText";
 
 const Hero = () => {
@@ -40,14 +39,11 @@ const Hero = () => {
         </motion.nav>
 
         {/* Hero Content */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="order-2 lg:order-1"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
             <p className="code-comment text-mono-italic mb-6">
               product_designer.strategist()
             </p>
@@ -63,7 +59,7 @@ const Hero = () => {
               <span className="cursor-blink"></span>
             </h1>
 
-            <p className="text-body text-lg max-w-xl mb-10 leading-relaxed">
+            <p className="text-body text-lg max-w-4xl mb-10 leading-relaxed">
               7 years designing software for global teams. Currently a UX
               Designer at <span className="text-display">Amadeus</span>, with a
               Master in Interaction Design from{" "}
@@ -120,26 +116,7 @@ const Hero = () => {
                 contact()
               </a>
             </motion.div>
-          </motion.div>
-
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="order-1 lg:order-2 flex justify-center lg:justify-end"
-          >
-            <div className="profile-frame w-72 md:w-80 lg:w-96">
-              <div className="pt-7">
-                <img
-                  src={profilePhoto}
-                  alt="Iveta Dimitrova"
-                  className="w-full aspect-[3/4] object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div

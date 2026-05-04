@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "next-themes";
 import { siteMeta } from "@content/site-meta";
 import { caseStudies } from "@/content/case-studies";
 import {
@@ -16,6 +17,7 @@ import {
 export function CommandPalette() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -107,6 +109,19 @@ export function CommandPalette() {
             }
           >
             <span className="font-mono">download_cv()</span>
+          </CommandItem>
+          <CommandItem
+            value="toggle theme dark light"
+            onSelect={() =>
+              run(() => setTheme(theme === "light" ? "dark" : "light"))
+            }
+          >
+            <span className="font-mono">
+              toggle_theme() →{" "}
+              <span className="text-muted-foreground">
+                {theme === "light" ? "dark" : "light"}
+              </span>
+            </span>
           </CommandItem>
         </CommandGroup>
       </CommandList>

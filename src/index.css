@@ -69,6 +69,54 @@
     --terminal-yellow: 45 90% 60%;
     --terminal-purple: 270 70% 65%;
   }
+
+  /* Light theme — applied by next-themes when class="light" is on <html> */
+  :root.light {
+    --background: 220 18% 97%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 220 20% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 42%;
+
+    --accent: 175 60% 32%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 87%;
+    --input: 220 15% 87%;
+    --ring: 175 60% 32%;
+
+    --sidebar-background: 220 18% 95%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 175 60% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 92%;
+    --sidebar-accent-foreground: 220 20% 15%;
+    --sidebar-border: 220 15% 87%;
+    --sidebar-ring: 175 60% 32%;
+
+    --text-display: 220 20% 15%;
+    --text-body: 220 15% 35%;
+    --text-code: 175 60% 32%;
+    --accent-glow: 175 60% 32% / 0.18;
+    --terminal-green: 140 55% 30%;
+    --terminal-yellow: 40 80% 35%;
+    --terminal-purple: 270 50% 45%;
+  }
 }
 
 @layer base {
@@ -175,34 +223,11 @@
     box-shadow: 0 0 20px hsl(var(--accent-glow));
   }
 
-  /* Profile image container - terminal window style */
+  /* Profile image container */
   .profile-frame {
     @apply relative overflow-hidden rounded-lg;
     border: 1px solid hsl(var(--border));
     box-shadow: 0 20px 50px -10px hsl(220 20% 5% / 0.8);
-  }
-
-  .profile-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    background: hsl(var(--secondary));
-    border-bottom: 1px solid hsl(var(--border));
-    z-index: 10;
-  }
-
-  .profile-frame::after {
-    content: '● ● ●';
-    position: absolute;
-    top: 6px;
-    left: 10px;
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: hsl(var(--muted-foreground));
-    z-index: 11;
   }
 
   /* Section divider - code style */
