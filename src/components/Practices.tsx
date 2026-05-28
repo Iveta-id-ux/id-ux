@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import portraitPhoto from "@/assets/portrait-warm.jpg";
+import portraitPhoto from "@/assets/portrait-warm.webp";
 
 const Practices = () => {
   const practices = [
