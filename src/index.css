@@ -13,7 +13,7 @@
   :root {
     /* Dark base — slightly warmer than 20% saturation */
     --background: 220 18% 8%;
-    --foreground: 0 0% 100%;
+    --foreground: 210 20% 92%;
 
     /* Card surfaces */
     --card: 220 18% 11%;
@@ -61,8 +61,8 @@
     --sidebar-ring: 175 70% 50%;
 
     /* Custom tokens */
-    --text-display: 0 0% 100%;
-    --text-body: 0 0% 100%;
+    --text-display: 210 20% 95%;
+    --text-body: 215 15% 60%;
     --text-code: 175 70% 50%;
     --accent-glow: 175 70% 50% / 0.15;
     --terminal-green: 140 70% 50%;

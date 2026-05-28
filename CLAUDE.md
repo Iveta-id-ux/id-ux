@@ -20,17 +20,15 @@ There is no separate typecheck script; `npx tsc --noEmit` works.
 
 Vite + React 18 + TypeScript + Tailwind + shadcn/ui (Radix primitives in `src/components/ui/`). MDX-backed content with Zod-validated frontmatter.
 
-**Routing (`src/App.tsx`)** — `/` → `Index`, `/work` → `Work` index, `/work/:slug` → `CaseStudy`, `/photo` → `Photo`, `/draw` → `Draw`, `/research` → `Research`, `*` → `NotFound`. Catch-all stays last; the comment in the file marks the spot.
+**Routing (`src/App.tsx`)** — `/` → `Index`, `/work` → `Work` index, `/work/:slug` → `CaseStudy`, `*` → `NotFound`. Catch-all stays last; the comment in the file marks the spot.
 
 **Page composition**
-- `Index` is not a "real" page; it stacks `Hero`, `Practices` (`id="about"` — keep the id even though the section is no longer called Philosophy, so existing `#about` deep-links survive), `Contact` (`id="contact"`).
-- `Practices` (`src/components/Practices.tsx`) is the second section: portrait in the left column, a `practices.ls()` directory listing in the right column with four entries — `product` (→ `/work`), `photography` (→ `/photo`), `illustration` (→ `/draw`), `field` (→ `/research`). Each row is a `<Link>` styled as `.code-block`. The directory order and `~/path` strings are part of the visual; keep them in sync with the routes.
-- Iveta's portrait lives in the **Practices** section's left column, not in `Hero`. Hero is full-width text + CTA only. Don't move the portrait back to Hero without asking.
-- `Photo`, `Draw`, `Research` are deliberately **stub pages** for the non-product practices — a `coming_soon` headline + one-line tagline + `← cd ~/` back-link. They exist so the practice rows have working destinations. Don't flesh them out into real galleries until the content is ready and the user has signed off.
+- `Index` is not a "real" page; it stacks `Hero`, `Philosophy` (`id="about"`), `Contact` (`id="contact"`).
+- Iveta's portrait lives in the **Philosophy** section's left header column (under the `// Decisions made on evidence` subhead), not in `Hero`. Hero is full-width text + CTA only. Don't move it back without asking.
 - `Work` is the case-studies index — header + filter pills + grid of `<CaseStudyCard />`. Filters are derived from the union of each case study's `taxonomy`, `scope.industry`, and `scope.role`. Filter selection is multi-select **OR** match, URL-synced via `useSearchParams` (`/work?filter=travel&filter=senior_ux`). Sort is `featured: true` first, then `order` ascending.
 - `CaseStudy` resolves `:slug` via `getCaseStudy()` and falls through to `<NotFound />` on miss. Layout is `<CaseStudyLayout>` (top bar + header + grid shell with sticky left rail on desktop / `<details>` accordion on mobile, driven by `IntersectionObserver` reading `<h2>` IDs in the rendered MDX).
 
-**Cross-page nav caveat** — `#about`/`#contact` anchors only work from `/`. Don't link to them from `/work`, `/work/[slug]`, `/photo`, `/draw`, or `/research` without a scroll-to-anchor handler on landing.
+**Cross-page nav caveat** — `#about`/`#contact` anchors only work from `/`. Don't link to them from `/work` or `/work/[slug]` without a scroll-to-anchor handler on landing.
 
 **MDX content pipeline (`vite.config.ts`)** — `@mdx-js/rollup` runs `enforce: "pre"` so it transforms `*.mdx` before the React SWC plugin. Remark plugins: `remark-frontmatter` + `remark-mdx-frontmatter` (frontmatter becomes a named export), `remark-gfm` (tables, strikethrough, autolinks). Rehype: `rehype-slug` (auto h2 IDs the left rail consumes).
 
@@ -46,7 +44,7 @@ Vite + React 18 + TypeScript + Tailwind + shadcn/ui (Radix primitives in `src/co
 
 **Per-route document title/description** — `src/lib/useDocumentMeta.ts` is a tiny hook each page calls once. It updates `document.title` and the `<meta name="description">` tag. Base values in `index.html` are the `/` defaults; sub-routes override on mount.
 
-**Theme system** — `next-themes` `<ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange storageKey="id-ux-theme">` wraps the app in `src/App.tsx`. `enableSystem={false}` is deliberate — the toggle is a hard binary, not OS-following. The `class` strategy adds `light` or `dark` to `<html>`; CSS picks up the swap via `:root` and `:root.light`. Toggle UI: `<ThemeToggle />` (`src/components/ThemeToggle.tsx`) — a 40×20 pill switch with sun (`text-terminal-yellow`) at left, moon at right, knob slides between them; `role="switch"` + `aria-checked` exposed. Mounted on the right edge of `<StatusBar />`. The same toggle is also a command in the palette (`toggle_theme()`). Tailwind `darkMode: ["class"]` is set in `tailwind.config.ts`, so `dark:` utilities still work for shadcn components.
+**Theme system** — `next-themes` `<ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange storageKey="id-ux-theme">` wraps the app in `src/App.tsx`. The `class` strategy adds `light` or `dark` to `<html>`; CSS picks up the swap via `:root` and `:root.light`. Toggle UI: `<ThemeToggle />` (`src/components/ThemeToggle.tsx`) — a 40×20 pill switch with sun (`text-terminal-yellow`) at left, moon at right, knob slides between them; `role="switch"` + `aria-checked` exposed. Mounted on the right edge of `<StatusBar />`. The same toggle is also a command in the palette (`toggle_theme()`). Tailwind `darkMode: ["class"]` is set in `tailwind.config.ts`, so `dark:` utilities still work for shadcn components.
 
 **Site-wide chrome (mounted in `src/App.tsx`)**
 - `<StatusBar />` — sticky 28px bar across all routes. Format: `// status: {status} · last_updated: {ISO} · location: {city}` with `<ThemeToggle />` at the right edge. On `/work/:slug` the status segment morphs to `// section: {current h2}` driven by `useActiveSection()` (`src/lib/useActiveSection.ts`), the same hook the case-study left rail consumes.

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import portraitPhoto from "@/assets/portrait-warm.webp";
+import portraitPhoto from "@/assets/portrait-warm.jpg";
 
 const Practices = () => {
   const practices = [
@@ -37,7 +37,7 @@ const Practices = () => {
   ];
 
   return (
-    <section id="about" className="py-16 lg:py-20 bg-card">
+    <section id="about" className="py-24 lg:py-32 bg-card">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Portrait — alone, no header */}
