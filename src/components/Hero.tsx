@@ -12,17 +12,17 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="flex justify-between items-center mb-10 sm:mb-14 lg:mb-24"
         >
-          <span className="font-mono text-base sm:text-lg text-display">
+          <span className="font-mono text-base sm:text-lg text-white">
             Iveta Dimitrova
           </span>
           <div className="flex gap-3 sm:gap-6 md:gap-8">
-            <Link to="/work" className="text-body text-sm font-mono hover:text-code transition-colors">
+            <Link to="/work" className="text-white text-sm font-mono hover:text-code transition-colors">
               ./work
             </Link>
-            <a href="#about" className="text-body text-sm font-mono hover:text-code transition-colors">
+            <a href="#about" className="text-white text-sm font-mono hover:text-code transition-colors">
               ./about
             </a>
-            <a href="#contact" className="text-body text-sm font-mono hover:text-code transition-colors">
+            <a href="#contact" className="text-white text-sm font-mono hover:text-code transition-colors">
               ./contact
             </a>
           </div>
