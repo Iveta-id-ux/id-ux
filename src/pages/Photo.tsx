@@ -28,6 +28,15 @@ const Photo = () => {
           <p className="text-body text-lg max-w-xl leading-relaxed">
             Analog black and white. Portraits and the natural world. A selection arriving soon.
           </p>
+
+          <a
+            href="https://www.flickr.com/photos/wookeh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link inline-block mt-8 font-mono"
+          >
+            flickr.archive()
+          </a>
         </motion.div>
       </div>
     </section>
