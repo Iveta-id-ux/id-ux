@@ -47,7 +47,7 @@ const Hero = () => {
               Product designer / shipping{" "}
               <span className="text-terminal-yellow">human centered design</span>{" "}
               backed by{" "}
-              <span className="text-code">product strategy and research</span>.
+              <span className="text-code">product strategy and research</span>
               <span className="cursor-blink"></span>
             </h1>
 
