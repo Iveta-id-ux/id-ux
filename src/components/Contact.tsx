@@ -19,10 +19,6 @@ const Contact = () => {
               <span className="text-code">meaningful_work</span>
               <span className="cursor-blink"></span>
             </h2>
-            <p className="text-body text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-              Currently considering senior IC and lead roles in product design,
-              strategy, and research.
-            </p>
             <p className="font-mono text-sm mb-12">
               <span className="text-muted-foreground">// </span>
               <a
@@ -92,7 +88,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-mono text-muted-foreground">
             <span>© {siteMeta.copyrightYear} {siteMeta.name}</span>
-            <span className="text-code">// crafted_with_intention</span>
+            <span className="text-code">// crafted_with_imagination</span>
           </div>
         </div>
       </motion.footer>
