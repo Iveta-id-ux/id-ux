@@ -1,20 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { DecodingText } from "@/components/DecodingText";
 
 const Hero = () => {
-  const disciplines = [
-    "Product_Strategy",
-    "UX_Research",
-    "Design_Systems",
-    "Discovery",
-    "Service_Design",
-    "Interaction_Design",
-  ];
-
   return (
-    <section className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-20">
+    <section className="bg-background">
+      <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 lg:pt-20 pb-6 sm:pb-8 lg:pb-12">
         {/* Navigation */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
@@ -48,43 +38,38 @@ const Hero = () => {
               product_designer.strategist()
             </p>
 
-            <h1 className="text-mono-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.15] mb-6">
-              <DecodingText cacheKey="hero-headline">Senior UX designer</DecodingText>
-              <br />
-              <span className="text-body">/</span> shipping{" "}
-              <span className="text-code">product strategy</span>
-              <br />
-              backed by{" "}
-              <span className="text-terminal-yellow">research</span>
-              <span className="cursor-blink"></span>
+            <h1 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+              Iveta Dimitrova
             </h1>
 
-            <p className="text-body text-lg max-w-xl mb-4 leading-relaxed">
-              7 years designing software for global teams. Currently a UX Designer at Amadeus with a Master in Interaction Design from Domus Academy / NABA Milan.
-            </p>
-
-            <p className="font-mono text-sm max-w-xl mb-10 text-display flex items-center gap-2">
-              <span
-                className="inline-block w-2 h-2 rounded-full bg-terminal-green animate-pulse-slow shrink-0"
-                aria-hidden="true"
-              />
-              <span>open to senior IC and lead roles · product design, strategy, research</span>
-            </p>
-
-            {/* Disciplines */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              {disciplines.map((discipline, index) => (
-                <motion.span
-                  key={discipline}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  className="discipline-tag"
-                >
-                  {discipline}
-                </motion.span>
-              ))}
+            <div className="font-mono text-xl md:text-2xl leading-snug mb-8 space-y-1">
+              <p>Product designer</p>
+              <p>
+                <span className="text-body">/</span>shipping{" "}
+                <span className="text-terminal-yellow">human centered design</span>
+              </p>
+              <p>
+                backed by{" "}
+                <span className="text-code">product strategy and research</span>
+              </p>
             </div>
+
+            <p className="font-sans text-base md:text-lg max-w-xl mb-8 leading-relaxed">
+              7 years designing software for global teams. Currently a UX Designer at{" "}
+              <strong className="text-terminal-yellow font-semibold">Amadeus</strong>, with a Master in Interaction Design from{" "}
+              <strong className="text-terminal-yellow font-semibold">
+                Domus Academy / NABA Milan
+              </strong>
+              , Italy, and a Bachelor in Cultural Anthropology at{" "}
+              <strong className="text-terminal-yellow font-semibold">
+                Université de Fribourg
+              </strong>
+              , Switzerland. Open to senior IC and lead roles in product design, strategy, and research.
+            </p>
+
+            <p className="font-mono text-sm md:text-base text-code max-w-2xl mb-12 leading-relaxed">
+              // I&apos;m good at  &gt;  UX design  &gt;  Product strategy  &gt;  Interaction Design  &gt;  UX research  &gt;  UI design  &gt;  Design systems  &gt;  SCRUM  &gt;  Product Life Cycle
+            </p>
 
             {/* CTA */}
             <motion.div
@@ -117,19 +102,6 @@ const Hero = () => {
                 contact()
               </a>
             </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="hidden lg:flex justify-center mt-20"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="font-mono text-xs text-muted-foreground">scroll_down()</span>
-            <div className="w-px h-12 bg-border" />
-          </div>
         </motion.div>
       </div>
     </section>
