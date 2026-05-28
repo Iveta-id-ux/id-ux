@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { DecodingText } from "@/components/DecodingText";
 
 const Hero = () => {
   const disciplines = [
@@ -13,8 +12,8 @@ const Hero = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-20">
+    <section className="bg-background">
+      <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 lg:pt-20 pb-2 sm:pb-3 lg:pb-4">
         {/* Navigation */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
@@ -23,7 +22,7 @@ const Hero = () => {
           className="flex justify-between items-center mb-10 sm:mb-14 lg:mb-24"
         >
           <span className="font-mono text-base sm:text-lg text-display">
-            <span className="text-code">~/</span>portfolio
+            Iveta Dimitrova
           </span>
           <div className="flex gap-3 sm:gap-6 md:gap-8">
             <Link to="/work" className="text-body text-sm font-mono hover:text-code transition-colors">
@@ -44,31 +43,16 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-            <p className="code-comment text-mono-italic mb-6">
-              product_designer.strategist()
-            </p>
-
-            <h1 className="text-mono-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.15] mb-6">
-              <DecodingText cacheKey="hero-headline">Senior UX designer</DecodingText>
-              <br />
-              <span className="text-body">/</span> shipping{" "}
-              <span className="text-code">product strategy</span>
-              <br />
+            <h1 className="text-mono-bold text-3xl md:text-4xl lg:text-5xl leading-[1.15] mb-6">
+              Product designer / shipping{" "}
+              <span className="text-terminal-yellow">human centered design</span>{" "}
               backed by{" "}
-              <span className="text-terminal-yellow">research</span>
+              <span className="text-code">product strategy and research</span>.
               <span className="cursor-blink"></span>
             </h1>
 
-            <p className="text-body text-lg max-w-xl mb-4 leading-relaxed">
+            <p className="text-body text-lg max-w-xl mb-10 leading-relaxed">
               7 years designing software for global teams. Currently a UX Designer at Amadeus with a Master in Interaction Design from Domus Academy / NABA Milan.
-            </p>
-
-            <p className="font-mono text-sm max-w-xl mb-10 text-display flex items-center gap-2">
-              <span
-                className="inline-block w-2 h-2 rounded-full bg-terminal-green animate-pulse-slow shrink-0"
-                aria-hidden="true"
-              />
-              <span>open to senior IC and lead roles · product design, strategy, research</span>
             </p>
 
             {/* Disciplines */}
@@ -124,7 +108,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.2 }}
-          className="hidden lg:flex justify-center mt-20"
+          className="hidden lg:flex justify-center mt-10"
         >
           <div className="flex flex-col items-center gap-2">
             <span className="font-mono text-xs text-muted-foreground">scroll_down()</span>
