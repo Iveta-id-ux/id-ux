@@ -28,7 +28,7 @@ const Practices = () => {
     },
     {
       number: "04",
-      key: "field",
+      key: "study",
       path: "~/research",
       to: "/research",
       description:
@@ -81,14 +81,22 @@ const Practices = () => {
                   <br />
                   <span className="text-terminal-purple">illustration</span>
                   <span className="text-muted-foreground">,</span>{" "}
-                  <span className="text-terminal-purple">field</span>
+                  <span className="text-terminal-purple">study</span>
                   <span className="text-muted-foreground">,</span>
                 </span>
                 <br />
                 <span className="text-muted-foreground">]</span>
               </h2>
-              <p className="text-body max-w-md">
-                Four practices, one through-line — deep observation of how people live, work, and see.
+              <p className="text-body text-base md:text-lg max-w-xl leading-relaxed">
+                Beyond the screen, I'm a freeride snowboarder, an analog photographer since 2004, and someone who keeps a dream of designing for{" "}
+                <span className="text-terminal-purple font-semibold">space exploration</span>{" "}
+                taped to the inside of my notebook. I taught{" "}
+                <span className="text-terminal-purple font-semibold">35mm photography</span>{" "}
+                to kids before most of them had ever held a roll of film. I read{" "}
+                <span className="text-terminal-purple font-semibold">cultural anthropology</span>{" "}
+                the way some people read fiction, and I think{" "}
+                <span className="text-terminal-purple font-semibold">analytically and empathically</span>.
+                The work below is the public face of all that.
               </p>
             </motion.div>
 

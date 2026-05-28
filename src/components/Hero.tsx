@@ -2,15 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const disciplines = [
-    "Product_Strategy",
-    "UX_Research",
-    "Design_Systems",
-    "Discovery",
-    "Service_Design",
-    "Interaction_Design",
-  ];
-
   return (
     <section className="bg-background">
       <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 lg:pt-20 pb-2 sm:pb-3 lg:pb-4">
@@ -55,21 +46,6 @@ const Hero = () => {
               7 years designing software for global teams. Currently a UX Designer at Amadeus with a Master in Interaction Design from Domus Academy / NABA Milan.
             </p>
 
-            {/* Disciplines */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              {disciplines.map((discipline, index) => (
-                <motion.span
-                  key={discipline}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  className="discipline-tag"
-                >
-                  {discipline}
-                </motion.span>
-              ))}
-            </div>
-
             {/* CTA */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -101,19 +77,6 @@ const Hero = () => {
                 contact()
               </a>
             </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="hidden lg:flex justify-center mt-10"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="font-mono text-xs text-muted-foreground">scroll_down()</span>
-            <div className="w-px h-12 bg-border" />
-          </div>
         </motion.div>
       </div>
     </section>
