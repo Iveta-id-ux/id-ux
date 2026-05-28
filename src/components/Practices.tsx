@@ -68,7 +68,7 @@ const Practices = () => {
               transition={{ duration: 0.6 }}
               className="mb-10"
             >
-              <p className="code-comment mb-4">practices.ls()</p>
+              <p className="code-comment mb-4">about.ls()</p>
               <h2 className="font-mono text-2xl md:text-3xl lg:text-4xl leading-tight mb-4">
                 <span className="text-code">const</span> practices{" "}
                 <span className="text-muted-foreground">= [</span>
