@@ -59,15 +59,16 @@ const Hero = () => {
               <span className="cursor-blink"></span>
             </h1>
 
-            <p className="text-body text-lg max-w-4xl mb-10 leading-relaxed">
-              7 years designing software for global teams. Currently a UX
-              Designer at <span className="text-display">Amadeus</span>, with a
-              Master in Interaction Design from{" "}
-              <span className="text-display">Domus Academy / NABA Milan</span>,
-              Italy, and a Bachelor in Cultural Anthropology at{" "}
-              <span className="text-display">Université de Fribourg</span>,
-              Switzerland. Open to senior IC and lead roles in product design,
-              strategy, and research.
+            <p className="text-body text-lg max-w-xl mb-4 leading-relaxed">
+              7 years designing software for global teams. Currently a UX Designer at Amadeus with a Master in Interaction Design from Domus Academy / NABA Milan.
+            </p>
+
+            <p className="font-mono text-sm max-w-xl mb-10 text-display flex items-center gap-2">
+              <span
+                className="inline-block w-2 h-2 rounded-full bg-terminal-green animate-pulse-slow shrink-0"
+                aria-hidden="true"
+              />
+              <span>open to senior IC and lead roles · product design, strategy, research</span>
             </p>
 
             {/* Disciplines */}
