@@ -7,6 +7,9 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import Work from "./pages/Work";
 import CaseStudy from "./pages/CaseStudy";
+import Photo from "./pages/Photo";
+import Draw from "./pages/Draw";
+import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 import { StatusBar } from "@/components/StatusBar";
 import { CommandPalette } from "@/components/CommandPalette";
@@ -32,6 +35,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/work" element={<Work />} />
             <Route path="/work/:slug" element={<CaseStudy />} />
+            <Route path="/photo" element={<Photo />} />
+            <Route path="/draw" element={<Draw />} />
+            <Route path="/research" element={<Research />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -64,6 +64,9 @@ export default {
         display: "hsl(var(--text-display))",
         body: "hsl(var(--text-body))",
         code: "hsl(var(--text-code))",
+        "terminal-green": "hsl(var(--terminal-green))",
+        "terminal-yellow": "hsl(var(--terminal-yellow))",
+        "terminal-purple": "hsl(var(--terminal-purple))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -91,6 +94,10 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
+        "pulse-slow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -98,6 +105,7 @@ export default {
         "fade-up": "fade-up 0.6s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "blink": "blink 1s step-end infinite",
+        "pulse-slow": "pulse-slow 2s ease-in-out infinite",
       },
     },
   },
