@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import Practices from "@/components/Practices";
-import Contact from "@/components/Contact";
 import { useDocumentMeta } from "@/lib/useDocumentMeta";
 
 const Index = () => {
@@ -13,7 +12,6 @@ const Index = () => {
     <main className="min-h-screen">
       <Hero />
       <Practices />
-      <Contact />
     </main>
   );
 };

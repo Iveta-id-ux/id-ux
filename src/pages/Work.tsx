@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { caseStudies } from "@/content/case-studies";
 import { CaseStudyCard } from "@/components/work/CaseStudyCard";
 import { useDocumentMeta } from "@/lib/useDocumentMeta";
@@ -51,29 +51,6 @@ const Work = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Navigation */}
-      <motion.nav
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="container mx-auto px-4 sm:px-6 py-5 sm:py-8 flex justify-between items-center"
-      >
-        <Link
-          to="/"
-          className="font-mono text-base sm:text-lg text-display hover:text-code transition-colors"
-        >
-          <span className="text-code">~/</span>portfolio
-        </Link>
-        <div className="flex gap-3 sm:gap-6 md:gap-8">
-          <Link
-            to="/"
-            className="text-body text-sm font-mono hover:text-code transition-colors"
-          >
-            cd ../home
-          </Link>
-        </div>
-      </motion.nav>
-
       <div className="container mx-auto px-4 sm:px-6 py-8 lg:py-12">
         {/* Header */}
         <motion.div

@@ -12,7 +12,10 @@ import Draw from "./pages/Draw";
 import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 import { StatusBar } from "@/components/StatusBar";
+import { SiteNav } from "@/components/SiteNav";
 import { CommandPalette } from "@/components/CommandPalette";
+import { HashScroller } from "@/components/HashScroller";
+import Contact from "@/components/Contact";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +33,9 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <StatusBar />
+          <SiteNav />
           <CommandPalette />
+          <HashScroller />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/work" element={<Work />} />
@@ -41,6 +46,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Contact />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
