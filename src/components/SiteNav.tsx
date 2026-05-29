@@ -29,7 +29,7 @@ export function SiteNav() {
           ./about
         </Link>
         <Link
-          to="/#contact"
+          to="#contact"
           className="font-mono text-mono-regular text-sm text-display hover:text-code transition-colors"
         >
           ./contact
