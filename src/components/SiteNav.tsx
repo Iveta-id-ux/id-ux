@@ -1,39 +1,45 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function useSmartHeader() {
   const [visible, setVisible] = useState(true);
+  const hoveredRef = useRef(false);
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>();
+  const lastYRef = useRef(typeof window === "undefined" ? 0 : window.scrollY);
+
+  const scheduleHide = useCallback(() => {
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+    // Stay open while parked at the top or while the cursor is hovering the nav.
+    if (window.scrollY <= 8) return;
+    if (hoveredRef.current) return;
+    hideTimerRef.current = setTimeout(() => {
+      if (hoveredRef.current) return;
+      setVisible(false);
+    }, 3000);
+  }, []);
 
   useEffect(() => {
-    let lastY = window.scrollY;
-    let hideTimer: ReturnType<typeof setTimeout> | undefined;
-
-    const scheduleHide = () => {
-      if (hideTimer) clearTimeout(hideTimer);
-      // Stay visible while parked at the top of the page.
-      if (window.scrollY <= 8) return;
-      hideTimer = setTimeout(() => setVisible(false), 3000);
-    };
-
     const onScroll = () => {
       const y = window.scrollY;
 
       if (y <= 8) {
         // At or near the top: always visible, kill any pending hide.
         setVisible(true);
-        if (hideTimer) clearTimeout(hideTimer);
-      } else if (y < lastY) {
-        // Any upward flick: show + restart the 3s idle timer.
+        if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+      } else if (y < lastYRef.current) {
+        // Upward flick: show + restart the 3s idle timer.
         setVisible(true);
         scheduleHide();
-      } else if (y > lastY) {
-        // Downward scroll: hide immediately, no idle timer needed.
-        setVisible(false);
-        if (hideTimer) clearTimeout(hideTimer);
+      } else if (y > lastYRef.current) {
+        // Downward scroll: hide immediately, unless cursor is over the nav.
+        if (!hoveredRef.current) {
+          setVisible(false);
+          if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+        }
       }
 
-      lastY = y;
+      lastYRef.current = y;
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -42,18 +48,32 @@ function useSmartHeader() {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (hideTimer) clearTimeout(hideTimer);
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     };
+  }, [scheduleHide]);
+
+  const onMouseEnter = useCallback(() => {
+    hoveredRef.current = true;
+    setVisible(true);
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
   }, []);
 
-  return visible;
+  const onMouseLeave = useCallback(() => {
+    hoveredRef.current = false;
+    // Resume normal idle behaviour the moment the cursor leaves.
+    scheduleHide();
+  }, [scheduleHide]);
+
+  return { visible, onMouseEnter, onMouseLeave };
 }
 
 export function SiteNav() {
-  const visible = useSmartHeader();
+  const { visible, onMouseEnter, onMouseLeave } = useSmartHeader();
 
   return (
     <motion.div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       initial={{ opacity: 0, y: -10 }}
       animate={{
         opacity: visible ? 1 : 0,
