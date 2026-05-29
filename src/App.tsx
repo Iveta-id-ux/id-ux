@@ -12,6 +12,7 @@ import Draw from "./pages/Draw";
 import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 import { StatusBar } from "@/components/StatusBar";
+import { SiteNav } from "@/components/SiteNav";
 import { CommandPalette } from "@/components/CommandPalette";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <StatusBar />
+          <SiteNav />
           <CommandPalette />
           <Routes>
             <Route path="/" element={<Index />} />

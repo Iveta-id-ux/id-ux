@@ -49,13 +49,11 @@ const Practices = () => {
             className="lg:col-span-5"
           >
             <div className="profile-frame w-full max-w-md mx-auto lg:mx-0">
-              <div className="pt-7">
-                <img
-                  src={portraitPhoto}
-                  alt="Portrait"
-                  className="w-full aspect-[3/4] object-cover"
-                />
-              </div>
+              <img
+                src={portraitPhoto}
+                alt="Portrait"
+                className="w-full aspect-[3/4] object-cover"
+              />
             </div>
           </motion.div>
 

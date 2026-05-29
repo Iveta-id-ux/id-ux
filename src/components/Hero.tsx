@@ -4,30 +4,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="bg-background">
-      <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 lg:pt-20 pb-2 sm:pb-3 lg:pb-4">
-        {/* Navigation */}
-        <motion.nav
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-between items-center mb-10 sm:mb-14 lg:mb-24"
-        >
-          <span className="font-mono text-base sm:text-lg text-white">
-            Iveta Dimitrova
-          </span>
-          <div className="flex gap-3 sm:gap-6 md:gap-8">
-            <Link to="/work" className="text-white text-sm font-mono hover:text-code transition-colors">
-              ./work
-            </Link>
-            <a href="#about" className="text-white text-sm font-mono hover:text-code transition-colors">
-              ./about
-            </a>
-            <a href="#contact" className="text-white text-sm font-mono hover:text-code transition-colors">
-              ./contact
-            </a>
-          </div>
-        </motion.nav>
-
+      <div className="container mx-auto px-4 sm:px-6 pt-4 sm:pt-8 lg:pt-12 pb-2 sm:pb-3 lg:pb-4">
         {/* Hero Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
