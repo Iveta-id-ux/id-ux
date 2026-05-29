@@ -79,12 +79,6 @@ export function SiteNav() {
             ./work
           </Link>
           <Link
-            to="/#about"
-            className="font-mono text-mono-regular text-sm text-display hover:text-code transition-colors"
-          >
-            ./about
-          </Link>
-          <Link
             to="#contact"
             className="font-mono text-mono-regular text-sm text-display hover:text-code transition-colors"
           >
