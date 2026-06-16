@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Job Match Report — Iveta Dimitrova</title>
+  <meta name="description" content="An automated, CV-aware scan of live job listings, scored against Iveta Dimitrova's profile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: 220 18% 8%;   --foreground: 210 20% 92%;
+      --card: 220 18% 11%;        --muted: 220 15% 15%;
+      --muted-foreground: 215 15% 55%;
+      --border: 220 15% 18%;      --accent: 175 70% 50%;
+      --text-display: 210 20% 95%; --text-body: 215 15% 64%;
+      --green: 140 70% 50%;       --yellow: 45 90% 60%;  --purple: 270 70% 65%;
+      --accent-glow: 175 70% 50% / 0.15;
+      --radius: 0.25rem;
+    }
+    :root.light {
+      --background: 220 18% 97%;   --foreground: 220 20% 15%;
+      --card: 0 0% 100%;           --muted: 220 15% 92%;
+      --muted-foreground: 220 10% 42%;
+      --border: 220 15% 87%;       --accent: 175 60% 32%;
+      --text-display: 220 20% 15%; --text-body: 220 15% 35%;
+      --green: 140 55% 30%;        --yellow: 40 80% 35%;  --purple: 270 50% 45%;
+      --accent-glow: 175 60% 32% / 0.18;
+    }
+    * { box-sizing: border-box; border-color: hsl(var(--border)); }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground));
+      font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      background-image: radial-gradient(60% 50% at 50% -10%, hsl(var(--accent-glow)), transparent 70%);
+      background-repeat: no-repeat;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+    h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; color: hsl(var(--text-display));
+      font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; }
+    p { color: hsl(var(--text-body)); }
+    a { color: hsl(var(--accent)); text-underline-offset: 3px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .comment { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+      color: hsl(var(--muted-foreground)); }
+    .comment::before { content: '// '; }
+    .muted { color: hsl(var(--muted-foreground)); }
+
+    /* header */
+    header h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0.4rem 0 0.2rem; }
+    .sub { font-family: 'JetBrains Mono', monospace; color: hsl(var(--accent)); font-size: 0.95rem; }
+    .lede { margin-top: 1.4rem; max-width: 60ch; }
+
+    /* section heading, code style */
+    .section { margin-top: 3.5rem; }
+    .section > h2 { font-size: 1.35rem; margin-bottom: 0.25rem; }
+    .section > h2::before { content: '## '; color: hsl(var(--muted-foreground)); }
+    .divider { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: hsl(var(--border)); margin: 0.2rem 0 1.6rem; overflow: hidden; white-space: nowrap; }
+
+    /* match card */
+    .card { background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+      border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-bottom: 1.25rem;
+      transition: border-color .2s ease, box-shadow .2s ease; }
+    .card:hover { border-color: hsl(var(--accent) / 0.6); box-shadow: 0 0 28px hsl(var(--accent-glow)); }
+    .card-top { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .badge { flex: 0 0 auto; width: 58px; height: 58px; border-radius: var(--radius);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.4rem;
+      border: 1px solid; line-height: 1; }
+    .badge small { font-size: 0.5rem; font-weight: 500; letter-spacing: 0.08em; margin-top: 3px; opacity: .8; }
+    .b-green  { color: hsl(var(--green));  border-color: hsl(var(--green) / .5);  background: hsl(var(--green) / .08); }
+    .b-cyan   { color: hsl(var(--accent)); border-color: hsl(var(--accent) / .5); background: hsl(var(--accent) / .08); }
+    .b-yellow { color: hsl(var(--yellow)); border-color: hsl(var(--yellow) / .5); background: hsl(var(--yellow) / .08); }
+    .role { margin: 0; font-size: 1.15rem; }
+    .company { color: hsl(var(--text-body)); font-weight: 400; }
+    .meta { font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;
+      color: hsl(var(--muted-foreground)); margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.4rem 0.7rem; }
+    .meta .tag { color: hsl(var(--accent)); }
+    .rationale { font-style: italic; color: hsl(var(--text-body)); margin: 1rem 0 0.4rem;
+      padding-left: 0.9rem; border-left: 2px solid hsl(var(--border)); }
+    .notes { margin-top: 0.9rem; display: grid; gap: 0.65rem; }
+    .note .label { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      text-transform: uppercase; letter-spacing: 0.09em; color: hsl(var(--muted-foreground)); }
+    .note .label::before { content: '> '; color: hsl(var(--accent)); }
+    .note p { margin: 0.15rem 0 0; font-size: 0.93rem; }
+    .apply { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.1rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-decoration: none;
+      color: hsl(var(--accent)); border: 1px solid hsl(var(--accent) / .5);
+      padding: 0.4rem 0.8rem; border-radius: var(--radius); transition: all .2s ease; }
+    .apply:hover { background: hsl(var(--accent) / .1); box-shadow: 0 0 22px hsl(var(--accent-glow)); }
+
+    /* generic prose + tables */
+    .prose p { margin: 0.7rem 0; }
+    .prose ul { color: hsl(var(--text-body)); padding-left: 1.2rem; }
+    .prose li { margin: 0.35rem 0; }
+    .prose strong { color: hsl(var(--text-display)); font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.88rem; }
+    th, td { text-align: left; padding: 0.6rem 0.7rem; border-bottom: 1px solid hsl(var(--border)); vertical-align: top; }
+    th { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.08em; color: hsl(var(--muted-foreground)); }
+    td { color: hsl(var(--text-body)); }
+    .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; padding: 0.12rem 0.5rem;
+      border-radius: 999px; border: 1px solid; white-space: nowrap; }
+    .ok   { color: hsl(var(--green));  border-color: hsl(var(--green) / .5); }
+    .warn { color: hsl(var(--yellow)); border-color: hsl(var(--yellow) / .5); }
+    .bad  { color: hsl(var(--purple)); border-color: hsl(var(--purple) / .5); }
+
+    footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid hsl(var(--border));
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: hsl(var(--muted-foreground)); }
+
+    /* theme toggle */
+    .toggle { position: fixed; top: 1rem; right: 1rem; z-index: 10;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; cursor: pointer;
+      background: hsl(var(--card)); color: hsl(var(--muted-foreground));
+      border: 1px solid hsl(var(--border)); border-radius: var(--radius); padding: 0.35rem 0.6rem; }
+    .toggle:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent) / .5); }
+    .cursor::after { content: '_'; color: hsl(var(--accent)); animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  </style>
+</head>
+<body>
+  <button class="toggle" id="themeBtn" type="button">[ light ]</button>
+  <div class="wrap">
+
+    <header>
+      <div class="comment">automated job scan &middot; generated 2026-06-16</div>
+      <h1>Job&nbsp;Match&nbsp;Report<span class="cursor"></span></h1>
+      <div class="sub">Iveta Dimitrova &middot; Senior UX Designer</div>
+      <p class="lede">
+        An AI agent read Iveta's CV, searched live job boards for product- and UX-design roles,
+        and scored each opening against her profile &mdash; surfacing the strongest fits with
+        tailored notes on <em>why</em> they fit, the gaps to address, and an opening hook.
+        Below: the top matches, then how the scan worked and what we'd recommend next.
+      </p>
+    </header>
+
+    <!-- ================= MATCHES ================= -->
+    <section class="section">
+      <h2>Top matches</h2>
+      <div class="divider">─────────────────────────────────────────────────────────────────</div>
+
+      <!-- 85 -->
+      <article class="card">
+        <div class="card-top">
+          <div class="badge b-green">85<small>FIT</small></div>
+          <div>
+            <h3 class="role">Product Design Lead (UX/UI) <span class="company">— Telerik Academy / Progress</span></h3>
+            <div class="meta">
+              <span class="tag">full-time</span><span>Sofia, Bulgaria (Hybrid)</span><span>via Jobs.bg</span>
+            </div>
+          </div>
+        </div>
+        <p class="rationale">Extensive UX design experience, leadership skills, and relevant domain knowledge in education make this a strong match for a Product Design Lead role.</p>
+        <div class="notes">
+          <div class="note"><div class="label">Why you fit</div><p>Over 8 years in UX design including leadership, and proficiency in end-to-end design processes, make her well-suited to lead UX strategy for Telerik Academy's learning platform. Her expertise in Figma, user research, and design systems aligns directly with the requirements.</p></div>
+          <div class="note"><div class="label">Gaps</div><p>The CV doesn't call out Bulgarian-language proficiency, a minor gap if local-language stakeholder communication is needed (likely a non-issue here).</p></div>
+          <div class="note"><div class="label">Opening hook</div><p>"As a seasoned UX Design Specialist with a proven track record in leading design teams and crafting user-centered solutions, I'm excited to bring my expertise to Telerik Academy's learning platform."</p></div>
+        </div>
+        <a class="apply" href="https://www.jobs.bg/en/job/7654321" target="_blank" rel="noopener">View posting ↗</a>
+      </article>
+
+      <!-- 70 Stars+Honey -->
+      <article class="card">
+        <div class="card-top">
+          <div class="badge b-cyan">70<small>FIT</small></div>
+          <div>
+            <h3 class="role">Head of Customer Experience <span class="company">— Stars + Honey</span></h3>
+            <div class="meta">
+              <span class="tag">full-time</span><span>Detroit Metro · Remote</span><span>via RemoteOK</span>
+            </div>
+          </div>
+        </div>
+        <p class="rationale">Strong UX and leadership experience relevant to building a consumer-experience function, though without direct nutrition/retail-sector background.</p>
+        <div class="notes">
+          <div class="note"><div class="label">Why you fit</div><p>Experience leading design teams and creating user-centered solutions maps well to building and leading a consumer-experience function. End-to-end design and stakeholder collaboration are central to turning feedback into actionable insight.</p></div>
+          <div class="note"><div class="label">Gaps</div><p>Her experience is primarily UX within travel; be ready to show how it transfers to a fast-growing nutrition/DTC brand's consumer experience.</p></div>
+          <div class="note"><div class="label">Opening hook</div><p>"As a seasoned UX Design Specialist with a track record in user-centered solutions, I'm excited to bring design strategy and team leadership to elevate the consumer experience at Stars + Honey."</p></div>
+        </div>
+        <a class="apply" href="https://remoteOK.com/remote-jobs/remote-head-of-customer-experience-stars-honey-1133332" target="_blank" rel="noopener">View posting ↗</a>
+      </article>
+
+      <!-- 70 Lago -->
+      <article class="card">
+        <div class="card-top">
+          <div class="badge b-cyan">70<small>FIT</small></div>
+          <div>
+            <h3 class="role">Product Designer <span class="company">— Lago</span></h3>
+            <div class="meta">
+              <span class="tag">full-time</span><span>France / remote (wider Europe &amp; Americas)</span><span>via HN “Who is hiring”</span>
+            </div>
+          </div>
+        </div>
+        <p class="rationale">Strong UX/product-design skills fit the open Product Designer role; the company is engineering-heavy, which slightly tempers the score.</p>
+        <div class="notes">
+          <div class="note"><div class="label">Why you fit</div><p>Extensive UX experience — leading design teams and collaborating with stakeholders — aligns with Lago's Product Designer role. Proficiency with Figma and the Adobe suite plus remote-work experience make her a strong fit for a remote position in a tech-driven company.</p></div>
+          <div class="note"><div class="label">Gaps</div><p>Be ready to address limited exposure to billing platforms / open-source products, and lean on any technology-domain experience.</p></div>
+          <div class="note"><div class="label">Opening hook</div><p>"As a seasoned UX Design Specialist with a proven track record in user-centered solutions, I'm excited to bring my expertise to Lago's open-source billing platform."</p></div>
+        </div>
+        <a class="apply" href="https://jobs.ashbyhq.com/lago" target="_blank" rel="noopener">View roles ↗</a>
+      </article>
+
+      <!-- 60 Baton -->
+      <article class="card">
+        <div class="card-top">
+          <div class="badge b-yellow">60<small>FIT</small></div>
+          <div>
+            <h3 class="role">Senior Product Designer <span class="company">— Baton (Ryder)</span></h3>
+            <div class="meta">
+              <span class="tag">full-time</span><span>San Francisco (Hybrid) · partial remote</span><span>$140k–$190k</span><span>via HN “Who is hiring”</span>
+            </div>
+          </div>
+        </div>
+        <p class="rationale">Strong UX skills and relevant experience; the transportation/logistics domain and SF-hybrid setup are the main considerations.</p>
+        <div class="notes">
+          <div class="note"><div class="label">Why you fit</div><p>Experience leading design teams and collaborating with stakeholders aligns with the Senior Product Designer role. User-centered design process plus Figma/Adobe and a technology background fit creating impactful software for the logistics space.</p></div>
+          <div class="note"><div class="label">Gaps</div><p>No direct transportation/logistics experience; and the role is SF-hybrid, which may not suit a remote-first preference.</p></div>
+          <div class="note"><div class="label">Opening hook</div><p>"As a seasoned UX Design Specialist who turns complex challenges into user-centered solutions, I'm excited to help Baton redefine transportation and logistics."</p></div>
+        </div>
+        <a class="apply" href="https://grnh.se/2nlrivyp7us" target="_blank" rel="noopener">View posting ↗</a>
+      </article>
+
+      <p class="comment" style="margin-top:0.5rem">scores &amp; notes are the AI's, verbatim. HN role titles were hand-verified from the original posts (the auto-parser is fuzzy on free-text threads).</p>
+    </section>
+
+    <!-- ================= HOW IT WORKED ================= -->
+    <section class="section prose">
+      <h2>How the scan worked</h2>
+      <div class="divider">─────────────────────────────────────────────────────────────────</div>
+      <p>
+        A small crawler (codename <strong>Hunter</strong>) ran the whole pipeline end-to-end:
+      </p>
+      <ul>
+        <li><strong>Read the CV once</strong> into a structured profile (skills, seniority, domains, languages). The CV is from 2024, so it was read as a lightly-enriched, present-day profile — seniority isn't penalised for the document's age.</li>
+        <li><strong>Searched live boards</strong> for the target titles — <span class="mono">Product Designer, UX Strategy, Product Strategy, UX Design Manager</span> — using token matching so multi-word titles match in any order.</li>
+        <li><strong>Two-pass scoring.</strong> A fast model scored <em>every</em> listing 0–100 against the CV and classified its contract type; a stronger model then wrote tailored notes only for the strong matches (so cost scales with quality, not volume).</li>
+        <li><strong>Kept consultancy/contractor roles</strong> on purpose — plenty of good offers simply skip the admin of local full-time hiring.</li>
+      </ul>
+    </section>
+
+    <!-- ================= AGENT FINDINGS ================= -->
+    <section class="section prose">
+      <h2>What we learned (agent findings)</h2>
+      <div class="divider">─────────────────────────────────────────────────────────────────</div>
+
+      <p><strong>Source landscape.</strong> Not all job boards are equally reachable by an automated crawler:</p>
+      <table>
+        <thead><tr><th>Source</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>RemoteOK</td><td><span class="pill ok">reliable</span></td><td>Public feed. Surfaced the Stars + Honey match. Remote-first, dev-heavy.</td></tr>
+          <tr><td>HN “Who is hiring”</td><td><span class="pill ok">reliable</span></td><td>Public monthly thread. Surfaced Lago &amp; Baton. Startup-heavy.</td></tr>
+          <tr><td>Jobs.bg</td><td><span class="pill warn">blocked</span></td><td>Behind <strong>DataDome</strong> anti-bot — automated access gets a captcha. The 85-fit Telerik match came in via <em>pasted page text</em>, which works perfectly.</td></tr>
+          <tr><td>Google&nbsp;Jobs / Indeed</td><td><span class="pill bad">best-effort</span></td><td>Heavy anti-bot; not relied upon. Realistically need a paid API for dependable coverage.</td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:1.4rem"><strong>Title coverage.</strong> On the reliable boards, <span class="mono">Product Designer</span> and <span class="mono">Product Strategy</span> returned matches; <span class="mono">UX Strategy</span> and <span class="mono">UX Design Manager</span> as exact phrasings returned almost nothing. Broadening to <em>Product Designer, Senior/Lead Product Designer, Head of Design, UX Lead</em> widens the funnel considerably.</p>
+
+      <p><strong>Jobs.bg is worth the manual step.</strong> It's the richest Bulgaria-local source and produced the single best match. Until it's reached via a residential proxy, the reliable route is to copy the page text and let the matcher score it — exactly how the Telerik role was found.</p>
+
+      <p><strong>Honest caveats.</strong> This is one snapshot of recent listings, not the whole market. Scores come from a single model pass — directional, not gospel. And HN's free-text posts parse imperfectly, so those two titles were hand-checked against the source.</p>
+    </section>
+
+    <!-- ================= NEXT ================= -->
+    <section class="section prose">
+      <h2>Recommended next steps</h2>
+      <div class="divider">─────────────────────────────────────────────────────────────────</div>
+      <ul>
+        <li>Prioritise the <strong>Telerik Academy Product Design Lead</strong> (85) — strongest fit, local, and squarely on the leadership/strategy trajectory.</li>
+        <li>Run the scan with broader titles (<em>Head of Design, Lead/Senior Product Designer, UX Lead</em>) and add a Jobs.bg paste pass for the local market.</li>
+        <li>For remote/EU reach, the HN thread and RemoteOK refresh monthly — worth re-running each cycle.</li>
+      </ul>
+    </section>
+
+    <footer>
+      generated by an AI agent (Hunter) · 2026-06-16 · private unlisted link, not indexed ·
+      scores &amp; notes are AI-produced and should be sanity-checked before applying.
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement, btn = document.getElementById('themeBtn');
+      function set(mode) {
+        root.classList.toggle('light', mode === 'light');
+        root.classList.toggle('dark', mode !== 'light');
+        btn.textContent = mode === 'light' ? '[ dark ]' : '[ light ]';
+        try { localStorage.setItem('hunter-theme', mode); } catch (e) {}
+      }
+      var saved; try { saved = localStorage.getItem('hunter-theme'); } catch (e) {}
+      set(saved || 'dark');
+      btn.addEventListener('click', function () {
+        set(root.classList.contains('light') ? 'dark' : 'light');
+      });
+    })();
+  </script>
+</body>
+</html>
