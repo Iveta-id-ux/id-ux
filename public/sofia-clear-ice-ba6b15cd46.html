@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Craft Clear Ice in Sofia — Viability Study & Investment Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#05080f;
+    --ink-2:#0a111e;
+    --panel:rgba(255,255,255,0.035);
+    --panel-line:rgba(140,190,235,0.16);
+    --frost:#e9f4ff;
+    --mist:#9fb6cc;
+    --dim:#6d8299;
+    --cyan:#5fd0ff;
+    --cyan-deep:#2b9fe6;
+    --glacier:#7fe3d6;
+    --amber:#ffcf7a;
+    --danger:#ff8a8a;
+    --white:#f4fbff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--frost);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1100px 600px at 78% -8%, rgba(43,159,230,0.16), transparent 60%),
+      radial-gradient(900px 620px at 8% 12%, rgba(127,227,214,0.08), transparent 55%),
+      radial-gradient(1200px 800px at 50% 108%, rgba(43,159,230,0.10), transparent 60%);
+  }
+  .wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 28px}
+  ::selection{background:rgba(95,208,255,0.28);color:#fff}
+
+  /* Type scale */
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.05;letter-spacing:-0.02em;font-weight:600}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.34em;
+    text-transform:uppercase;color:var(--cyan);font-weight:500;
+  }
+  .mono{font-family:'JetBrains Mono',monospace}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;min-height:100vh;display:flex;flex-direction:column;
+    justify-content:center;padding:80px 0 60px;overflow:hidden;
+  }
+  .hero-grid{
+    position:absolute;inset:0;z-index:0;opacity:0.5;
+    background-image:
+      linear-gradient(rgba(95,208,255,0.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(95,208,255,0.05) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(circle at 50% 42%, #000 0%, transparent 78%);
+    -webkit-mask-image:radial-gradient(circle at 50% 42%, #000 0%, transparent 78%);
+  }
+  .cube-stage{
+    position:absolute;top:50%;right:-40px;transform:translateY(-50%);
+    width:min(46vw,520px);height:min(46vw,520px);z-index:0;opacity:0.9;
+    animation:floaty 9s ease-in-out infinite;
+  }
+  @keyframes floaty{0%,100%{transform:translateY(-52%)}50%{transform:translateY(-46%)}}
+  .cube-stage svg{width:100%;height:100%;filter:drop-shadow(0 30px 60px rgba(43,159,230,0.25))}
+  .hero-inner{position:relative;z-index:2;max-width:760px}
+  .hero h1{
+    font-size:clamp(44px,8.2vw,104px);font-weight:700;letter-spacing:-0.035em;
+    color:var(--white);margin:20px 0 0;
+  }
+  .hero h1 .thin{display:block;font-weight:400;color:var(--mist);font-size:clamp(20px,3.4vw,38px);letter-spacing:-0.01em;margin-top:14px}
+  .hero .lede{margin-top:30px;font-size:clamp(16px,2vw,20px);color:var(--mist);max-width:600px}
+  .hero-meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:26px}
+  .hero-meta div{display:flex;flex-direction:column;gap:3px}
+  .hero-meta .k{font-family:'JetBrains Mono',monospace;font-size:clamp(22px,3vw,30px);color:var(--cyan);font-weight:700}
+  .hero-meta .l{font-size:12px;color:var(--dim);letter-spacing:0.04em}
+  .scrollcue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.3em;color:var(--dim);
+    text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scrollcue span{display:block;width:1px;height:30px;background:linear-gradient(var(--cyan),transparent);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:0.3}50%{opacity:1}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:88px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px;flex-wrap:wrap}
+  .sec-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan-deep);font-weight:700}
+  .sec-head h2{font-size:clamp(28px,4.6vw,46px);color:var(--white)}
+  .sec-sub{color:var(--mist);max-width:720px;margin-bottom:44px;font-size:16.5px}
+  .divider{height:1px;background:linear-gradient(90deg,var(--panel-line),transparent);margin:0}
+
+  /* Panels */
+  .panel{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:2px;
+    padding:26px 28px;position:relative;backdrop-filter:blur(6px);
+  }
+  .panel::before{content:"";position:absolute;top:0;left:0;width:10px;height:10px;
+    border-top:1px solid var(--cyan);border-left:1px solid var(--cyan);opacity:0.6}
+  .panel::after{content:"";position:absolute;bottom:0;right:0;width:10px;height:10px;
+    border-bottom:1px solid var(--cyan);border-right:1px solid var(--cyan);opacity:0.6}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+  /* TL;DR */
+  #tldr{background:linear-gradient(180deg,rgba(10,17,30,0.6),transparent)}
+  .tldr-card h3{font-size:19px;color:var(--white);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .tldr-card h3 .dot{width:8px;height:8px;background:var(--cyan);transform:rotate(45deg);flex:none}
+  .tldr-card p{color:var(--mist);font-size:15px}
+  .tldr-card.warn h3 .dot{background:var(--amber)}
+  .tldr-card.stop h3 .dot{background:var(--danger)}
+
+  /* Stat cards */
+  .stat{background:var(--panel);border:1px solid var(--panel-line);border-radius:2px;padding:22px}
+  .stat .n{font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:var(--cyan);line-height:1;letter-spacing:-0.02em}
+  .stat .n small{font-size:16px;color:var(--glacier)}
+  .stat .lbl{margin-top:10px;font-size:13px;color:var(--mist);line-height:1.45}
+
+  /* Findings list */
+  .find{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--panel-line)}
+  .find:last-child{border-bottom:none}
+  .find .idx{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--cyan-deep);font-weight:700;padding-top:2px}
+  .find h4{font-size:18px;color:var(--white);margin-bottom:7px}
+  .find p{color:var(--mist);font-size:15px}
+
+  /* Text blocks */
+  .prose h3{font-size:20px;color:var(--white);margin:34px 0 12px}
+  .prose h3:first-child{margin-top:0}
+  .prose p{color:var(--mist);margin-bottom:14px;font-size:15.5px}
+  .prose strong{color:var(--frost);font-weight:600}
+  .prose .callout{border-left:2px solid var(--cyan);padding:12px 16px;margin:18px 0;color:var(--white);font-size:15px;background:rgba(95,208,255,0.06)}
+  .prose .callout strong{color:#fff}
+  .prose .callout.amber{border-color:var(--amber);background:rgba(255,207,122,0.10);color:#ffe6bd}
+  .prose .callout.amber strong{color:#fff}
+  .prose ul{list-style:none;margin:6px 0 16px}
+  .prose ul li{color:var(--mist);font-size:15px;padding:5px 0 5px 22px;position:relative}
+  .prose ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--cyan-deep);transform:rotate(45deg)}
+
+  /* Table */
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--panel-line);border-radius:2px}
+  table{width:100%;border-collapse:collapse;min-width:640px;font-size:14.5px}
+  th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--panel-line);vertical-align:top}
+  thead th{background:rgba(43,159,230,0.08);font-family:'Space Grotesk',sans-serif;color:var(--white);font-weight:600;font-size:13px;letter-spacing:0.02em}
+  tbody tr:hover{background:rgba(95,208,255,0.04)}
+  td .mono{color:var(--glacier)}
+
+  /* Tiers */
+  .tier{border:1px solid var(--panel-line);border-radius:2px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column}
+  .tier.feature{border-color:rgba(95,208,255,0.45);box-shadow:0 0 0 1px rgba(95,208,255,0.12),0 30px 60px -30px rgba(43,159,230,0.4)}
+  .tier .top{padding:24px 24px 20px;border-bottom:1px solid var(--panel-line);position:relative}
+  .tier.feature .top{background:linear-gradient(180deg,rgba(43,159,230,0.14),transparent)}
+  .tier .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:var(--cyan)}
+  .tier h3{font-size:23px;color:var(--white);margin:10px 0 4px}
+  .tier .price{font-family:'JetBrains Mono',monospace;font-size:26px;color:var(--glacier);font-weight:700}
+  .tier .purpose{font-size:13.5px;color:var(--dim);margin-top:8px;min-height:38px}
+  .tier .body{padding:22px 24px;flex:1}
+  .tier .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(140,190,235,0.12);font-size:13.5px}
+  .tier .row:last-child{border-bottom:none}
+  .tier .row .rk{color:var(--dim)}
+  .tier .row .rv{color:var(--frost);text-align:right;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+  .tier .highlight{margin-top:16px;padding:14px 16px;background:rgba(43,159,230,0.08);border:1px solid var(--panel-line)}
+  .tier .highlight .rk{color:var(--cyan)}
+  .tier .highlight .rv{color:var(--white);font-size:14px}
+  .best{position:absolute;top:14px;right:16px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;background:var(--cyan);color:#04121f;padding:4px 9px;font-weight:700}
+
+  /* Bar viz */
+  .bars{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:center}
+  .bar-row .bl{font-size:13px;color:var(--mist);font-family:'JetBrains Mono',monospace}
+  .bar-track{height:34px;background:rgba(255,255,255,0.03);border:1px solid var(--panel-line);position:relative;overflow:hidden}
+  .bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan-deep),var(--cyan));display:flex;align-items:center;padding-left:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#04121f;font-weight:700;white-space:nowrap}
+  .bar-fill.g{background:linear-gradient(90deg,#1d7a6e,var(--glacier))}
+  .bar-fill.a{background:linear-gradient(90deg,#c9932f,var(--amber))}
+
+  /* Competitor cards */
+  .comp{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .comp-card{background:var(--panel);border:1px solid var(--panel-line);padding:20px 22px;border-radius:2px}
+  .comp-card .cc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+  .comp-card h4{font-size:17px;color:var(--white)}
+  .comp-card .loc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.1em}
+  .comp-card p{font-size:14px;color:var(--mist)}
+  .comp-card .pr{margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--glacier)}
+
+  /* Risk / rec */
+  .reclist{counter-reset:rec;display:flex;flex-direction:column;gap:2px}
+  .rec{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--panel-line)}
+  .rec:last-child{border-bottom:none}
+  .rec::before{counter-increment:rec;content:counter(rec,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--cyan-deep);font-weight:700}
+  .rec h4{font-size:17px;color:var(--white);margin-bottom:5px}
+  .rec p{font-size:14.5px;color:var(--mist)}
+
+  .verdict{background:linear-gradient(135deg,rgba(43,159,230,0.14),rgba(127,227,214,0.06));border:1px solid rgba(95,208,255,0.3);padding:38px 34px;border-radius:2px;position:relative;overflow:hidden}
+  .verdict .eyebrow{margin-bottom:14px}
+  .verdict p{font-size:clamp(17px,2.3vw,22px);color:var(--frost);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.4;letter-spacing:-0.01em}
+  .verdict p strong{color:var(--white);font-weight:600}
+
+  /* Caveats */
+  .caveat{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--panel-line);align-items:start}
+  .caveat:last-child{border-bottom:none}
+  .caveat .mk{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:13px;padding-top:3px}
+  .caveat p{font-size:14px;color:var(--mist)}
+
+  /* Sources */
+  #sources{padding-bottom:120px}
+  .src-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .src{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px 16px;background:var(--panel);border:1px solid var(--panel-line);border-radius:2px;align-items:center;text-decoration:none;transition:.2s}
+  .src:hover{border-color:var(--cyan);background:rgba(95,208,255,0.05)}
+  .src .sn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan-deep);font-weight:700}
+  .src .st{font-size:13.5px;color:var(--frost);font-weight:500}
+  .src .su{font-size:11.5px;color:var(--dim);font-family:'JetBrains Mono',monospace;word-break:break-all}
+
+  footer{border-top:1px solid var(--panel-line);padding:40px 0;text-align:center}
+  footer p{color:var(--dim);font-size:12.5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .grid-2,.grid-3,.grid-4,.comp{grid-template-columns:1fr}
+    .cube-stage{opacity:0.25;right:-30%}
+    .bar-row{grid-template-columns:96px 1fr}
+    .src-grid{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .hero-meta{gap:18px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="cube-stage" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none">
+      <defs>
+        <linearGradient id="face1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#8fe6ff" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="#2b9fe6" stop-opacity="0.12"/>
+        </linearGradient>
+        <linearGradient id="face2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#5fd0ff" stop-opacity="0.32"/>
+          <stop offset="1" stop-color="#7fe3d6" stop-opacity="0.08"/>
+        </linearGradient>
+        <linearGradient id="face3" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#2b9fe6" stop-opacity="0.28"/>
+          <stop offset="1" stop-color="#0a111e" stop-opacity="0.1"/>
+        </linearGradient>
+      </defs>
+      <g stroke="#bfeaff" stroke-width="0.8" stroke-opacity="0.55">
+        <path d="M100 26 L162 62 L162 134 L100 170 L38 134 L38 62 Z" fill="url(#face3)"/>
+        <path d="M100 26 L162 62 L100 98 L38 62 Z" fill="url(#face1)"/>
+        <path d="M100 98 L162 62 L162 134 L100 170 Z" fill="url(#face2)"/>
+        <path d="M100 98 L38 62 L38 134 L100 170 Z" fill="url(#face3)"/>
+        <path d="M100 26 L100 98 M38 62 L100 98 L162 62" stroke-opacity="0.4"/>
+        <path d="M70 44 L132 80 M130 44 L70 80" stroke-opacity="0.18"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Viability Study &amp; Investment Plan</span>
+    <h1>Craft Clear Ice<span class="thin">A first-mover play for Sofia, Bulgaria — modeled on Hundredweight Ice, NYC</span></h1>
+    <p class="lede">Hand-cut, glass-clear ice for premium bars, restaurants and hotels. B2B first, retail later. Here is what the market, the competition, the logistics and each tier of capital actually look like.</p>
+    <div class="hero-meta">
+      <div><span class="k">€8k–20k</span><span class="l">Recommended lean entry</span></div>
+      <div><span class="k">0</span><span class="l">Craft-ice rivals in Bulgaria</span></div>
+      <div><span class="k">15–25</span><span class="l">Serious cocktail bars in Sofia</span></div>
+      <div><span class="k">$3M</span><span class="l">Hundredweight 2025 revenue (NYC benchmark)</span></div>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<span></span></div>
+</header>
+
+<!-- TL;DR -->
+<section id="tldr">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">00</span><h2>The short version</h2></div>
+    <p class="sec-sub reveal">Three things to hold in mind before reading anything else.</p>
+    <div class="grid-3">
+      <div class="panel tldr-card reveal">
+        <h3><span class="dot"></span>Genuine, but small</h3>
+        <p>No dedicated clear/craft-ice supplier exists in Bulgaria today. The opening is real — but the addressable market (≈15–25 serious bars, ~15 five-star hotels, no Michelin presence) is a fraction of New York's. This is a market you must <strong>build</strong>, not capture.</p>
+      </div>
+      <div class="panel tldr-card warn reveal">
+        <h3><span class="dot"></span>Start lean, prove it</h3>
+        <p>Begin at <strong>€8k–€20k</strong>: one 230V Clinebell block maker, chest-freezer storage, a band saw, hand tools, cooler-box delivery. Enough to validate demand with 5–15 venues before committing serious capital. A Hundredweight-style facility is a 3–5 year destination, not a start line.</p>
+      </div>
+      <div class="panel tldr-card stop reveal">
+        <h3><span class="dot"></span>Retail is a sideline</h3>
+        <p>Direct-to-consumer is <strong>not viable as a primary strategy</strong> near-term — low disposable income and a young home-cocktail culture. It works only as a thin, high-margin extra (gifting, delis, events). Bet the business on B2B; use retail as marketing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- KEY FINDINGS -->
+<section id="findings">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">01</span><h2>Key findings</h2></div>
+    <p class="sec-sub reveal">Four load-bearing facts the rest of the analysis rests on.</p>
+    <div class="panel reveal">
+      <div class="find">
+        <div class="idx">F1</div>
+        <div>
+          <h4>No competitor exists in Bulgaria</h4>
+          <p>Bulgarian-language searches surfaced only commodity cubed/crushed-ice and dry-ice suppliers (icecubes.bg, North Pole Ice, Fjord, Nokov &amp; Son) and retail countertop machines (CASO, Klarstein). There is no hand-cut craft/clear-ice B2B house anywhere in the country. First-mover status confirmed.</p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="idx">F2</div>
+        <div>
+          <h4>The premium demand base is real but shallow</h4>
+          <p>Sofia's cocktail scene matured fast (5L, Bar Me, Sputnik, The Scene at Hyatt, Sense Rooftop), upscale cocktails run €10–14, and there are ~15 five-star hotels. But volumes are a small fraction of Western markets — and Michelin has not launched in Bulgaria.</p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="idx">F3</div>
+        <div>
+          <h4>Equipment is easy; cold chain and market-building are hard</h4>
+          <p>A 230V Clinebell CB300X2E lands in Bulgaria for roughly €6k–€9k all-in. Low electricity (~€0.16–0.26/kWh) and cheap labor make operating costs among the EU's lowest. The moat is not the machine — it's the cold chain, consistency, and being first.</p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="idx">F4</div>
+        <div>
+          <h4>Unit economics can work at Sofia prices</h4>
+          <p>Clear cubes retail near €1 in Berlin and the US. Sofia B2B pricing must sit lower (est. €0.40–0.80/cube) to win adoption, but production cost is only a few cents plus labor — leaving real margin if positioned as a premium ingredient.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">02</span><h2>Market viability in Sofia</h2></div>
+    <p class="sec-sub reveal">The scene is maturing, the willingness-to-pay is modest, and the Michelin halo that powers demand elsewhere has not yet arrived.</p>
+
+    <div class="grid-4 reveal" style="margin-bottom:40px">
+      <div class="stat"><div class="n">~15–25</div><div class="lbl">Serious cocktail bars likely to pay for craft ice</div></div>
+      <div class="stat"><div class="n">~15</div><div class="lbl">Five-star hotels in Sofia</div></div>
+      <div class="stat"><div class="n">0<small> stars</small></div><div class="lbl">Michelin presence — Sofia assessed &amp; not included, 2026</div></div>
+      <div class="stat"><div class="n">€10–14</div><div class="lbl">Typical upscale cocktail price</div></div>
+    </div>
+
+    <div class="prose panel reveal">
+      <h3>The model being copied</h3>
+      <p>Hundredweight Ice (NYC), founded 2011 by Richard Boccato, grew from breaking down 300-lb blocks with chainsaws and clothing irons into a multimillion-dollar operation. In a February 2026 essay, Boccato reports delivering to over 20 Michelin-starred restaurants, triple-digit NYC clients, ~$3M revenue in 2025 and 15,000+ two-inch cubes per day from a 5,000-sq-ft warehouse. That is the aspirational ceiling — Sofia is a different scale of city.</p>
+
+      <h3>Scene size &amp; maturity</h3>
+      <p>Local guides describe a scene that has "gotten seriously good in the last few years": 5L (Bulgaria's first modern speakeasy), Bar Me, Sputnik, Memento, The Scene (Hyatt), Sense Rooftop, One More Bar. Fine dining is thinner — Cosmos (widely tipped as Bulgaria's likely first star), Secret Table, André, Miyabi, Ahora.</p>
+
+      <h3>Michelin status — a critical correction</h3>
+      <p class="callout amber">The Michelin Guide has <strong>not</strong> launched in Bulgaria. Inspectors assessed Sofia in 2026 and it failed to secure inclusion. As of mid-July 2026: <strong>0 stars, 0 Bib Gourmands, 0 recommended listings.</strong></p>
+      <p>Per chef Boris Petrov (relayed via TravelNews / Novinite, July 2026), inspectors flagged inconsistent service, oversized menus suggesting frozen ingredients, and a mismatch between prices and experience. The implication: the "Michelin halo" driving premium-ice demand in NYC/London does not yet exist here — but a future arrival would be a major tailwind.</p>
+
+      <h3>Willingness to pay</h3>
+      <p>Bulgaria is the EU's lowest-wage member. The 2026 minimum wage is <strong>€620.20/month</strong> (first year denominated in euro after eurozone accession); average gross is ~€1,290–1,370 nationally, ~€1,732 in Sofia city. In the US, clear ice adds a perceived 60–80¢ per drink; in Sofia the per-cube ceiling is materially lower, so the program must sell on differentiation, "Instagrammability," and reduced dilution — not as an easy upsell.</p>
+
+      <h3>How the market developed elsewhere</h3>
+      <p>Pioneered in the US (Hundredweight, 2011), matured in Western Europe (London: Esteem, Ice Studio), and has since reached mid-size Continental capitals. <strong>Warsaw is the closest CEE precedent</strong> — a single dedicated craft-ice house (Jamal-Ice) serving 5-star hotels and premium bars. Sofia sits roughly where Warsaw was several years ago.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- COMPETITORS -->
+<section id="competitors">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">03</span><h2>Competitors &amp; benchmarks</h2></div>
+    <p class="sec-sub reveal">Nobody does this in Bulgaria. The relevant comparables are elsewhere in Europe — useful as templates and as pricing anchors.</p>
+
+    <div class="comp reveal">
+      <div class="comp-card">
+        <div class="cc-top"><h4>Jamal-Ice</h4><span class="loc">Warsaw, PL</span></div>
+        <p>The best CEE template. Cubes, spheres (2.5/4/6cm), spears, diamonds, clear 100×50×25cm blocks, sculptures, custom logos (min. 50 pcs). Hoshizaki machines, 2–4h delivery. Targets 5-star hotels and whisky/premium bars.</p>
+      </div>
+      <div class="comp-card">
+        <div class="cc-top"><h4>Die Eisfabrik</h4><span class="loc">Berlin, DE</span></div>
+        <p>Clear 5×5×5cm cubes made in Berlin from 100% drinking water with green electricity.</p>
+        <div class="pr">€50 / 50-pack → €1.00 per cube</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-top"><h4>iceclear / Icebreaker</h4><span class="loc">Milan, IT</span></div>
+        <p>"Gourmet cube" positioning against supermarket ice — a clear premium-vs-commodity split.</p>
+        <div class="pr">€0.56/kg vs ~€2/kg supermarket</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-top"><h4>Bulgaria substitutes</h4><span class="loc">Sofia / BG</span></div>
+        <p>Commodity cube suppliers (icecubes.bg, North Pole Ice, Fjord), dry-ice/alcohol distributors (Nokov &amp; Son), imported countertop clear-ice machines, and bars improvising directional freezing in-house.</p>
+      </div>
+    </div>
+
+    <div class="prose panel reveal" style="margin-top:22px">
+      <h3>Competitive dynamics</h3>
+      <p>The industry splits between <strong>commodity ice</strong> (Hoshizaki/machine, cheap) and <strong>craft ice</strong> (Clinebell blocks, hand-cut, premium). Anyone can buy a Clinebell, so the machine is not the moat. The defensible edge is the cold chain, consistency, relationships, custom/etched work, and event capability — plus the durable advantage of being the first name in the market. Other European models worth studying: Ice Qube (DE), Eis Star &amp; eis-fabrik.com (Vienna), Sword Ice (Sicily), Esteem &amp; Ice Studio (London).</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- LOGISTICS -->
+<section id="logistics">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">04</span><h2>Logistical hurdles</h2></div>
+    <p class="sec-sub reveal">Equipment is the easy part. The cold chain and food-safety registration are where operations are won or lost.</p>
+
+    <div class="grid-2">
+      <div class="panel prose reveal">
+        <h3>Equipment</h3>
+        <p>Core kit mirrors Hundredweight: Clinebell CB300 block maker(s), an electric chainsaw to break down blocks, a band saw for cubing, ice picks/chisels, sphere and press molds, and eventually a CNC/laser for etching.</p>
+        <ul>
+          <li>International 230V model = <strong>CB300X2E</strong> (US domestic 115V = CB300X2D)</li>
+          <li>US list pricing roughly $3,800–$7,000 by model/vintage</li>
+          <li>One CB300 makes two 300-lb blocks per ~3-day cycle</li>
+        </ul>
+      </div>
+      <div class="panel prose reveal">
+        <h3>Sourcing &amp; import</h3>
+        <p>Clinebell is US-based (Loveland, Colorado). Order the 230V/50Hz <strong>CB300X2E</strong> — do not import the 115V US model.</p>
+        <ul>
+          <li>Landed cost ≈ machine + trans-Atlantic freight (~270kg crate) + EU import duty (HS 8418, low single-digit) + 20% Bulgarian VAT (recoverable if VAT-registered)</li>
+          <li>Budget ≈ <strong>€6,000–€9,000 all-in per machine</strong></li>
+          <li>Alternative: source Hoshizaki-based clear-ice kit inside the EU (as Warsaw/Milan/Vienna do) to skip trans-Atlantic logistics</li>
+        </ul>
+      </div>
+      <div class="panel prose reveal">
+        <h3>Water &amp; clarity</h3>
+        <p>Sofia's tap water is good quality; like NYC (where Hundredweight still filters despite excellent municipal water), a multi-stage filtration/RO stage is standard for clarity and safety. The Clinebell's circulating-pump directional freezing does the clarity work.</p>
+        <h3>Cold chain — the crux</h3>
+        <p>Ice must stay below freezing from harvest through cutting, storage, transport and delivery. Needs chest/upright freezers or a walk-in cold room, insulated transport at lean tier, and a freezer-spec (not merely chilled) van as you scale. Sofia is compact, which shortens runs.</p>
+      </div>
+      <div class="panel prose reveal">
+        <h3>Regulation</h3>
+        <p>Ice for human consumption is a food activity. You must register the establishment with the <strong>Bulgarian Food Safety Agency (БАБХ/BFSA)</strong>, run a HACCP plan (EU Reg. 852/2004), meet hygiene/premises standards, and complete staff medical exams.</p>
+        <h3>Costs &amp; setup</h3>
+        <ul>
+          <li>Company setup: 10% corporate tax (lowest in EU), €1 min. capital for EOOD/OOD, ~1–2 day registration</li>
+          <li>Business electricity ~€0.16–0.26/kWh; a CB300 draws ~36 kWh/day → ~€150–220/mo per machine</li>
+          <li>Industrial/warehouse rent ~€4–7/m²/month</li>
+          <li>Labor cheap by EU standards, but ice-cutting is skilled, physical work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- INVESTMENT TIERS -->
+<section id="tiers">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">05</span><h2>Three capital tiers</h2></div>
+    <p class="sec-sub reveal">What each level of investment actually buys — equipment, capacity, clients and realistic revenue in the Sofia context. All figures EUR, indicative.</p>
+
+    <div class="grid-3">
+      <!-- LEAN -->
+      <div class="tier feature reveal">
+        <div class="top">
+          <span class="best">Start here</span>
+          <span class="tag">Tier 1 · Bootstrap</span>
+          <h3>Lean</h3>
+          <div class="price">€8k–€20k</div>
+          <p class="purpose">Prove the market before betting big.</p>
+        </div>
+        <div class="body">
+          <div class="row"><span class="rk">Block maker</span><span class="rv">1× CB300X2E €6–9k</span></div>
+          <div class="row"><span class="rk">Storage</span><span class="rv">2–3 chest freezers</span></div>
+          <div class="row"><span class="rk">Cutting</span><span class="rv">Band saw + hand tools</span></div>
+          <div class="row"><span class="rk">Delivery</span><span class="rv">Car + insulated coolers</span></div>
+          <div class="row"><span class="rk">Space</span><span class="rv">Small bay / shared kitchen</span></div>
+          <div class="row"><span class="rk">Monthly opex</span><span class="rv">€1.5k–€3k</span></div>
+          <div class="row"><span class="rk">Capacity</span><span class="rv">~1k–3k cubes/mo early</span></div>
+          <div class="row"><span class="rk">Clients</span><span class="rv">5–15 venues + events</span></div>
+          <div class="highlight">
+            <div class="row" style="border:none;padding:0"><span class="rk">Revenue</span><span class="rv">€1k–€4k / month</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--dim);margin-top:12px">About learning, relationships and cut quality — not profit.</p>
+        </div>
+      </div>
+
+      <!-- MODERATE -->
+      <div class="tier reveal">
+        <div class="top">
+          <span class="tag">Tier 2 · Growth</span>
+          <h3>Moderate</h3>
+          <div class="price">€20k–€80k</div>
+          <p class="purpose">Become Sofia's default premium supplier.</p>
+        </div>
+        <div class="body">
+          <div class="row"><span class="rk">Block makers</span><span class="rv">2–4× CB300X2E</span></div>
+          <div class="row"><span class="rk">Storage</span><span class="rv">Walk-in cold room / freezer bank</span></div>
+          <div class="row"><span class="rk">Cutting</span><span class="rv">2 stations, sphere presses, etching</span></div>
+          <div class="row"><span class="rk">Delivery</span><span class="rv">Used freezer-spec van</span></div>
+          <div class="row"><span class="rk">Brand</span><span class="rv">Packaging + website</span></div>
+          <div class="row"><span class="rk">Staff</span><span class="rv">1–2 production/delivery</span></div>
+          <div class="row"><span class="rk">Monthly opex</span><span class="rv">€4k–€9k</span></div>
+          <div class="row"><span class="rk">Capacity</span><span class="rv">~7k–18k kg/month</span></div>
+          <div class="row"><span class="rk">Clients</span><span class="rv">20–40 venues + events</span></div>
+          <div class="highlight">
+            <div class="row" style="border:none;padding:0"><span class="rk">Revenue</span><span class="rv">€8k–€20k / month</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--dim);margin-top:12px">Realistic path to break-even and modest profit.</p>
+        </div>
+      </div>
+
+      <!-- SCALE -->
+      <div class="tier reveal">
+        <div class="top">
+          <span class="tag">Tier 3 · Scale</span>
+          <h3>Serious</h3>
+          <div class="price">€80k+</div>
+          <p class="purpose">A Hundredweight-style operation for the region.</p>
+        </div>
+        <div class="body">
+          <div class="row"><span class="rk">Block makers</span><span class="rv">6–10× CB300X2E</span></div>
+          <div class="row"><span class="rk">Etching</span><span class="rv">CNC / laser €10–25k</span></div>
+          <div class="row"><span class="rk">Facility</span><span class="rv">150–300m² + cold storage</span></div>
+          <div class="row"><span class="rk">Fleet</span><span class="rv">1–2 refrigerated vans</span></div>
+          <div class="row"><span class="rk">Staff</span><span class="rv">3–5 (prod/delivery/sales)</span></div>
+          <div class="row"><span class="rk">Monthly opex</span><span class="rv">€12k–€25k</span></div>
+          <div class="row"><span class="rk">Capacity</span><span class="rv">30k–50k+ kg/month</span></div>
+          <div class="row"><span class="rk">Clients</span><span class="rv">Full market + retail + export</span></div>
+          <div class="highlight">
+            <div class="row" style="border:none;padding:0"><span class="rk">Revenue</span><span class="rv">€25k–€50k+ / month</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--danger);margin-top:12px">Only after Tier 2 proves demand — or with an export plan. Sofia alone can't yet absorb this.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Revenue potential bars -->
+    <h3 style="font-family:'Space Grotesk';color:var(--white);font-size:20px;margin:52px 0 6px" class="reveal">Mature monthly revenue potential</h3>
+    <p style="color:var(--dim);font-size:13px;margin-bottom:8px" class="reveal">Upper figures are ceilings contingent on strong execution and successful demand-building.</p>
+    <div class="bars reveal">
+      <div class="bar-row"><span class="bl">Lean</span><div class="bar-track"><div class="bar-fill g" style="width:8%">€1k–4k</div></div></div>
+      <div class="bar-row"><span class="bl">Moderate</span><div class="bar-track"><div class="bar-fill" style="width:40%">€8k–20k</div></div></div>
+      <div class="bar-row"><span class="bl">Serious</span><div class="bar-track"><div class="bar-fill a" style="width:100%">€25k–50k+</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- RETAIL -->
+<section id="retail">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">06</span><h2>Retail / DTC viability</h2></div>
+    <p class="sec-sub reveal">You asked whether selling to consumers makes sense. Honestly: not as the engine.</p>
+    <div class="grid-2">
+      <div class="panel prose reveal">
+        <h3>Why it won't scale</h3>
+        <p>Bulgaria has the EU's lowest wages, a nascent home-cocktail culture, and consumers highly price-sensitive during the 2026 euro changeover (food inflation ~5% y/y late 2025). A €1/cube retail bag competes against <strong>free cloudy freezer ice</strong> for the mass market. That will not scale.</p>
+      </div>
+      <div class="panel prose reveal">
+        <h3>Where it does work</h3>
+        <p>A thin premium sideline is viable and useful:</p>
+        <ul>
+          <li>Gift packs &amp; spheres via premium delis / wine shops</li>
+          <li>E-commerce for expats and enthusiasts</li>
+          <li>Event / party ice — weddings, corporate</li>
+        </ul>
+        <p class="callout">Verdict: <strong>secondary, not primary.</strong> Treat retail as a marketing channel and a way to monetize offcuts and excess capacity — not the growth driver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ASSESSMENT + RECS -->
+<section id="assessment">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">07</span><h2>Assessment &amp; recommendation</h2></div>
+
+    <div class="verdict reveal" style="margin-bottom:44px">
+      <span class="eyebrow">Bottom line</span>
+      <p><strong>Viable — but as a patient market-building play, not a quick copy of a $3M NYC business.</strong> Your single strongest advantage is that no one else does this in Bulgaria; you can become the definitive name before anyone enters, exactly as Hundredweight did in NYC and Jamal-Ice did in Warsaw. The constraint is scale: a small, price-sensitive market with no Michelin halo yet.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:44px">
+      <div class="panel prose reveal">
+        <h3>Biggest risks</h3>
+        <ul>
+          <li><strong>Demand too thin</strong> to absorb capacity — mitigate by starting lean</li>
+          <li><strong>Cold-chain failure</strong> damaging product and reputation — invest early in freezers and a proper van</li>
+          <li><strong>Bars self-supplying</strong> with a single Clinebell — mitigate via service, consistency, custom/etched work, events</li>
+          <li><strong>Macro price-sensitivity</strong> post-euro changeover</li>
+        </ul>
+      </div>
+      <div class="panel prose reveal">
+        <h3>Scaling triggers</h3>
+        <ul>
+          <li><strong>Lean → Moderate:</strong> recurring orders from 15+ venues and turning away demand</li>
+          <li><strong>Moderate → Serious:</strong> hold for year 3+, paired with a specific catalyst — Michelin's arrival, a regional export plan (Bucharest, Belgrade, Thessaloniki), or a locked hotel-group contract</li>
+          <li>Never build €80k+ of capacity on speculative demand</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Space Grotesk';color:var(--white);font-size:22px;margin-bottom:8px" class="reveal">Recommended entry plan</h3>
+    <div class="reclist panel reveal">
+      <div class="rec"><div><h4>Enter now, at the lean tier</h4><p>One CB300X2E, ~€10k–€15k all-in. The first-mover window is open and won't stay open forever. Register an EOOD, complete BFSA/HACCP, get one machine running.</p></div></div>
+      <div class="rec"><div><h4>Land 5–10 anchor venues in 6 months</h4><p>Target presentation-driven venues — 5L, Bar Me, The Scene (Hyatt), Sense Rooftop, plus 5-star hotel bars and Cosmos-tier restaurants. Offer free trials and a consistent 2" cube + sphere + Collins spear range.</p></div></div>
+      <div class="rec"><div><h4>Price for adoption, not Manhattan</h4><p>Aim for ~€0.40–€0.80/cube B2B, bundled into weekly delivery. Compete on reliability — "we handle the ice so you don't have to" — not on being cheapest.</p></div></div>
+      <div class="rec"><div><h4>Nail the cold chain before volume</h4><p>A single melted delivery kills trust. Buy sufficient freezer capacity and insulated transport from day one.</p></div></div>
+      <div class="rec"><div><h4>Scale only on proven demand</h4><p>Add machines, a walk-in cold room and a refrigerated van when 15+ venues order recurringly and you're turning demand away.</p></div></div>
+      <div class="rec"><div><h4>Use retail as marketing</h4><p>Launch a small gift/sphere line and event service once B2B is stable; let it amplify the brand rather than carry revenue.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- CAVEATS -->
+<section id="caveats">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">08</span><h2>Caveats</h2></div>
+    <p class="sec-sub reveal">Read these before acting on any number above.</p>
+    <div class="panel reveal">
+      <div class="caveat"><span class="mk">!</span><p><strong>Absence of competitor is "absence of evidence."</strong> A small operator active only on Instagram/Facebook can't be fully ruled out, though no established, web-visible Bulgarian craft-ice brand exists. Do primary field checks with Sofia bartenders before committing.</p></div>
+      <div class="caveat"><span class="mk">!</span><p><strong>The Michelin "rejection" is single-sourced on the specific verdict</strong> — one on-record chef (Boris Petrov) relayed by media (Novinite/TravelNews, July 2026), corroborated by Michelin showing no Bulgarian selection and Capital.bg's Dec 2025 skepticism. Reliable, but note the sourcing.</p></div>
+      <div class="caveat"><span class="mk">!</span><p><strong>All equipment, freight, duty, rent, wage and revenue figures are indicative ranges,</strong> not quotes. Clinebell asks buyers to call for current pricing "due to market volatility." Get live landed quotes (machine + freight + duty + VAT) before budgeting; 2026 US-into-EU tariff turbulence affects freight timing and cost.</p></div>
+      <div class="caveat"><span class="mk">!</span><p><strong>Revenue projections assume you create demand that doesn't yet exist.</strong> Treat the moderate/serious upper figures as ceilings contingent on strong execution — not base cases.</p></div>
+      <div class="caveat"><span class="mk">!</span><p><strong>Pricing benchmarks (€1/cube Berlin, €0.56/kg Milan, ~$1/cube US)</strong> come from markets with higher willingness to pay. Sofia realizations will be lower.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- SOURCES -->
+<section id="sources">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">09</span><h2>Sources</h2></div>
+    <p class="sec-sub reveal">Primary references cited in the underlying report.</p>
+    <div class="src-grid reveal">
+      <a class="src" href="https://clinebellequipment.com/pages/cb300x2d" target="_blank" rel="noopener"><span class="sn">01</span><span><span class="st">Clinebell — CB300X2D block maker</span><br><span class="su">clinebellequipment.com/pages/cb300x2d</span></span></a>
+      <a class="src" href="https://clinebellequipment.com/" target="_blank" rel="noopener"><span class="sn">02</span><span><span class="st">Clinebell Equipment Company</span><br><span class="su">clinebellequipment.com</span></span></a>
+      <a class="src" href="https://jamal-ice.com/" target="_blank" rel="noopener"><span class="sn">03</span><span><span class="st">Jamal-Ice — craft ice, Warsaw</span><br><span class="su">jamal-ice.com</span></span></a>
+      <a class="src" href="https://dieeisfabrik.de/products/klar-eis-5-x-5-x-5cm" target="_blank" rel="noopener"><span class="sn">04</span><span><span class="st">Die Eisfabrik — clear cubes, Berlin</span><br><span class="su">dieeisfabrik.de</span></span></a>
+      <a class="src" href="https://iceclear.it/" target="_blank" rel="noopener"><span class="sn">05</span><span><span class="st">iceclear / Icebreaker — Milan</span><br><span class="su">iceclear.it</span></span></a>
+      <a class="src" href="https://www.novinite.com/view_news.php?id=239605" target="_blank" rel="noopener"><span class="sn">06</span><span><span class="st">Novinite — Michelin flags Sofia scene (Jul 2026)</span><br><span class="su">novinite.com</span></span></a>
+      <a class="src" href="https://wanderlog.com/list/geoCategory/59988/michelin-star-restaurants-in-sofia" target="_blank" rel="noopener"><span class="sn">07</span><span><span class="st">Wanderlog — Sofia dining landscape</span><br><span class="su">wanderlog.com</span></span></a>
+      <a class="src" href="https://foodle.pro/restaurants/lists/top-fine-dining-restaurants-in-sofia-bulgaria" target="_blank" rel="noopener"><span class="sn">08</span><span><span class="st">Foodle — top fine dining in Sofia</span><br><span class="su">foodle.pro</span></span></a>
+      <a class="src" href="https://abarabove.com/podcast/mtp180-clear-ice-from-clinebell-to-glass/" target="_blank" rel="noopener"><span class="sn">09</span><span><span class="st">A Bar Above — clear ice, Clinebell to glass</span><br><span class="su">abarabove.com</span></span></a>
+      <a class="src" href="https://www.clearlyfrozen.com/bar-restaurant-supply-1" target="_blank" rel="noopener"><span class="sn">10</span><span><span class="st">Clearly Frozen — bar &amp; restaurant supply</span><br><span class="su">clearlyfrozen.com</span></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Craft Clear Ice · Sofia Viability Study &amp; Investment Plan · Figures indicative — verify live quotes before committing capital</p>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
