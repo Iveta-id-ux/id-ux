@@ -18,7 +18,7 @@ export function CaseStudyCard({ frontmatter }: Props) {
     frontmatter.scope.role,
     frontmatter.scope.duration,
     String(frontmatter.scope.year),
-  ];
+  ].filter((v): v is string => Boolean(v));
 
   return (
     <TransitionLink

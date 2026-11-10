@@ -13,8 +13,8 @@ Every `*.mdx` file in this directory must declare frontmatter at the top. The sc
 | `hero_image` | string | no | Path to the hero image (e.g. `/images/case-studies/foo/bar.jpg`). If absent, card and page fall back to the corner-bracket placeholder. |
 | `scope.role` | string | yes | e.g. `senior_ux`, `lead_designer`. |
 | `scope.team_size` | int | no | Numeric team size. |
-| `scope.duration` | string | yes | e.g. `18_months`. |
-| `scope.year` | int | yes | Year shipped or launched. |
+| `scope.duration` | string | no | e.g. `18_months`. Omitted from the card when absent. |
+| `scope.year` | int or string | yes | Year shipped or launched, or a quoted range like `"2024-2026"`. |
 | `scope.industry` | string | yes | e.g. `travel`, `fintech`. |
 | `stack` | string[] | yes | Tools used (`figma`, `miro`, etc.). |
 | `punchline` | string | yes | 2–4 sentence summary surfaced on the card. |

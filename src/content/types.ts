@@ -18,8 +18,9 @@ export const CaseStudyFrontmatter = z.object({
   scope: z.object({
     role: z.string(),
     team_size: z.number().int().positive().optional(),
-    duration: z.string(),
-    year: z.number().int(),
+    duration: z.string().optional(),
+    // A single year (2024) or a range ("2024-2026").
+    year: z.union([z.number().int(), z.string().regex(/^\d{4}(-\d{4})?$/)]),
     industry: z.string(),
   }),
   stack: z.array(z.string()),
