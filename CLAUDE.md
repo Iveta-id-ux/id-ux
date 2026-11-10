@@ -73,7 +73,7 @@ Vite + React 18 + TypeScript + Tailwind + shadcn/ui (Radix primitives in `src/co
 
 ## Editing-pass markers
 
-The Amadeus All Fares case study at `content/case-studies/amadeus-all-fares.mdx` is a structured draft. Each section ends with `> // TODO: user to refine` — these render as visible terminal-yellow blockquotes on the page so the editing pass can't miss them. Don't strip them silently.
+The Amadeus All Fares case study at `content/case-studies/amadeus.mdx` (route `/work/amadeus`; old `/work/amadeus-all-fares` redirects) is a structured draft. Its body is no longer rendered — the page is the bespoke `src/components/work/amadeus/AmadeusCaseStudy.tsx`; the frontmatter still drives the /work card. Each section ends with `> // TODO: user to refine` — these render as visible terminal-yellow blockquotes on the page so the editing pass can't miss them. Don't strip them silently.
 
 ## Phased work
 

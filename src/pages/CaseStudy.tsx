@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { getCaseStudy } from "@/content/case-studies";
 import { CaseStudyLayout } from "@/components/work/CaseStudyLayout";
 import { useDocumentMeta } from "@/lib/useDocumentMeta";
@@ -10,7 +10,15 @@ import NotFound from "./NotFound";
  * the /work card, title and meta; the MDX body is not rendered.
  */
 const bespokePages: Record<string, () => JSX.Element> = {
-  "amadeus-all-fares": AmadeusCaseStudy,
+  amadeus: AmadeusCaseStudy,
+};
+
+/**
+ * Old slugs that moved. Vercel also 301s these (vercel.json); this covers
+ * in-app links and the dev server.
+ */
+const slugAliases: Record<string, string> = {
+  "amadeus-all-fares": "amadeus",
 };
 
 const CaseStudy = () => {
@@ -23,6 +31,11 @@ const CaseStudy = () => {
       : "Not found — Iveta Dimitrova",
     study?.frontmatter.punchline.replace(/\s+/g, " ").slice(0, 160),
   );
+
+  const alias = slug ? slugAliases[slug] : undefined;
+  if (alias) {
+    return <Navigate to={`/work/${alias}`} replace />;
+  }
 
   if (!study) {
     return <NotFound />;
