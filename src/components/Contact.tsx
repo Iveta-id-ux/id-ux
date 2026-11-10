@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { siteMeta } from "@content/site-meta";
+import { EmailButton } from "@/components/EmailButton";
 
 const Contact = () => {
   return (
@@ -37,26 +38,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <a
-              href={`mailto:${siteMeta.email}`}
-              className="glow-button inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded font-mono text-sm font-medium transition-all"
-            >
-              <svg
-                aria-hidden="true"
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              send_email()
-            </a>
+            <EmailButton />
             <a
               href={siteMeta.linkedin}
               target="_blank"
