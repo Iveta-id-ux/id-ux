@@ -139,7 +139,7 @@ function After() {
           </div>
         </div>
         <div className="flex items-center gap-1.5 flex-wrap">
-          {["Cabin", "Fare types", "Content", "Airlines", "More"].map((c) => (
+          {["Cabin", "Fare types", "Content", "Launch providers", "More"].map((c) => (
             <span key={c} className="text-[8px] px-2 py-0.5 rounded-full border text-slate-500 flex items-center gap-0.5" style={{ borderColor: line }}>
               <Plus size={7} />
               {c}

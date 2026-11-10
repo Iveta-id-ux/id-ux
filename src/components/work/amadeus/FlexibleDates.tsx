@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Settings, Plane, Check, CircleDollarSign, Image as ImageIcon, Keyboard, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Settings, Check, CircleDollarSign, Image as ImageIcon, Keyboard, ChevronLeft, ChevronRight } from "lucide-react";
 import { BLUE, NAVY, display } from "./tokens";
 
 const PURPLE = "#7C3AED";
@@ -168,7 +168,6 @@ function CardTable() {
             <ImageIcon size={26} />
           </div>
           <div className="rounded bg-slate-200 p-3 space-y-2 min-h-[170px]">
-            <Plane size={22} />
             <div className="h-1 bg-slate-400 w-10" />
             <div className="h-1 bg-slate-400" />
             <div className="h-1 bg-slate-400" />
