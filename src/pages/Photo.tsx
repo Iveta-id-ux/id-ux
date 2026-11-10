@@ -29,14 +29,18 @@ const Photo = () => {
             Analog black and white. Portraits and the natural world. A selection arriving soon.
           </p>
 
-          <a
-            href="https://www.flickr.com/photos/wookeh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link inline-block mt-8 font-mono"
-          >
-            flickr.archive()
-          </a>
+          <p className="text-body text-lg mt-8">
+            Explore some pictures here{" "}
+            <span role="img" aria-label="pointing right">👉</span>{" "}
+            <a
+              href="https://www.flickr.com/photos/wookeh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link inline-block font-mono text-base"
+            >
+              flickr.archive()
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>
