@@ -2,7 +2,16 @@ import { useParams } from "react-router-dom";
 import { getCaseStudy } from "@/content/case-studies";
 import { CaseStudyLayout } from "@/components/work/CaseStudyLayout";
 import { useDocumentMeta } from "@/lib/useDocumentMeta";
+import { AmadeusCaseStudy } from "@/components/work/amadeus/AmadeusCaseStudy";
 import NotFound from "./NotFound";
+
+/**
+ * Case studies with a fully bespoke page. Their MDX frontmatter still drives
+ * the /work card, title and meta; the MDX body is not rendered.
+ */
+const bespokePages: Record<string, () => JSX.Element> = {
+  "amadeus-all-fares": AmadeusCaseStudy,
+};
 
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,6 +26,11 @@ const CaseStudy = () => {
 
   if (!study) {
     return <NotFound />;
+  }
+
+  const Bespoke = bespokePages[study.frontmatter.slug];
+  if (Bespoke) {
+    return <Bespoke />;
   }
 
   const { Component, frontmatter } = study;
